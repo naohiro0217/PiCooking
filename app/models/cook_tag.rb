@@ -1,0 +1,2 @@
+class CookTag < ApplicationRecord
+end
