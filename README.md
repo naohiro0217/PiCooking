@@ -1,24 +1,33 @@
-# README
+# PiCook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+料理や食べることの好きなが好きな人が作ったものや食べたものを写真と感想付きで投稿するレビューサイトです
 
-Things you may want to cover:
+### テーマを選んだ理由
+料理がとても好きで自分で作ったり外食などもよくいくのですが、自分の好きな料理や他の人の好きな料理を共有することで新しい発見があったり幸せな気持ちになれるようなサービスを作ってみたいと思いこのサービスにしました。
 
-* Ruby version
+### ターゲットユーザ
+- 料理が好きな人<br>
+- 食べることが好きな人<br>
+- お腹が空いている人<br>
+- 休日の外食先を探している人
 
-* System dependencies
+### 主な利用シーン
+- 自分で頑張って料理して自信作ができた時<br>
+- 料理の写真が見たい時<br>
+- 外食の気分を味わいたい時<br>
+- ダイエット中で気分だけでも美味しそうな料理を見たい時
 
-* Configuration
 
-* Database creation
+## 設計書
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+写真AC
