@@ -60,3 +60,5 @@ gem 'devise'
 
 # ページネーション
 gem 'kaminari','~> 1.2.1'
+# rails c用
+gem 'pry-rails'
