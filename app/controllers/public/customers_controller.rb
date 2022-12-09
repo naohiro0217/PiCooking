@@ -1,8 +1,5 @@
-class Public::CooksController < ApplicationController
+class Public::CustomersController < ApplicationController
   # before_action :authenticate_customer!
-  
-  def index
-  end
   
   def show
   end
@@ -10,14 +7,16 @@ class Public::CooksController < ApplicationController
   def edit
   end
   
-  def create
-  end
-  
   def update
   end
   
-  def destroy
+  def quit
   end
-
+  
+  def out
+  end
+  
+  def index
+  end
   
 end
