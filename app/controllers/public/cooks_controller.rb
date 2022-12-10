@@ -12,6 +12,13 @@ class Public::CooksController < ApplicationController
   end
 
   def edit
+    @cook = Cook.find(params[:id])
+    @customer = @cook.user
+    if @customer == current_customer
+      render :edit
+    else
+      redirect_to cooks_path
+    end
   end
 
   def create
@@ -22,6 +29,12 @@ class Public::CooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to book_path
+    else
+      render :edit
+    end
   end
 
   def destroy

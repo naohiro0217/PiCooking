@@ -24,7 +24,8 @@
   </tr>
 
   <tr>
-    <% if @post_image.user == current_user %>
+    <% if @post_image.customer == current_customer %>
+      <%= link_to "編集する", edit_cook_path %>
       <%= link_to "削除", post_image_path(@cook), method: :delete %>
     <% end %>
   </tr>
