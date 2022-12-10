@@ -3,6 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @cooks = @customer.cooks
   end
 
   def edit
@@ -19,5 +20,7 @@ class Public::CustomersController < ApplicationController
 
   def index
   end
+  
+  
 
 end

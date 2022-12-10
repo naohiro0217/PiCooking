@@ -1,0 +1,32 @@
+
+<h5>投稿一覧</h5>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td>タイトル</td>
+      <td>感想</td>
+      <td colspan="3"></th>
+    </tr>
+
+
+  </thead>
+  <tbody>
+    <% @cooks.each do |cook| %>
+      <tr>
+        <td>
+          <%= link_to(cook.customer) do %>
+            <%= image_tag cook.customer.get_profile_image, size: '40x40' %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to cook.title,book, class: "cook_#{cook.id}" %>
+        </td>
+
+        <td><% book.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

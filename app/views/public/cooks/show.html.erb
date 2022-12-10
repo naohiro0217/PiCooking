@@ -1,0 +1,27 @@
+
+<h5>投稿情報</h5>
+
+<table>
+  <tr>
+    <%= image_tag @customer.get_profile_image(100,100) %>
+    <%= link_to @customer.name, "/users/#{@customer.id}" %>
+  </tr>
+
+  <tr>
+    <% @cook.title %>
+  </tr>
+
+  <tr>
+    <% @cook.body %>
+  </tr>
+
+  <tr>
+    <%= image_tag @cook.get_image, size:"350x250" %>
+  </tr>
+
+  <tr>
+    <p>投稿日:<% @cook.created_at.strftime('%Y/%m/%d') %></p>
+  </tr>
+
+</table>
+
