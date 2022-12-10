@@ -1,0 +1,40 @@
+
+<h4>会員詳細画面</h4>
+
+<h4><% @customer.name %>さんの詳細画面</h4>
+
+<table>
+  <tr>
+    <td>会員ID</td>
+    <td><% @customer.id %></td>
+  </tr>
+
+  <tr>
+    <td>ユーザーネーム</td>
+    <td><% @customer.nickname %></td>
+  </tr>
+
+  <tr>
+    <td>フルネーム</td>
+    <td><% @customer.name %></td>
+  </tr>
+
+  <tr>
+    <td>メールアドレス</td>
+    <td><% @customer.email %></td>
+  </tr>
+
+  <tr>
+    <td>ステータス</td>
+    <% if @customer.is_deleted? %>
+      <td>退会</td>
+    <% else %>
+      <td>有効</td>
+    <% end %>
+  </tr>
+
+</table>
+
+<%= link_to "編集する", edit_admin_customer_path %>
+
+<%= link_to "会員一覧に戻る", admin_customers_path %>

@@ -37,7 +37,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # ニックネーム（ユーザーネーム）
       t.string :nickname, null: false
       # プロフィール
-      t.text :introduction, null: false
+      t.text :introduction
 
       # 退会フラグ
       # true=>退会した、false=>退会していない

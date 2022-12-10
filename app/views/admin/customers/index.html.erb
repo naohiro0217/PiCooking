@@ -12,10 +12,12 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= image_tag @customer.get_profile_image(100,100) %></td>
         <td><% customer.id %></td>
-        <td><% customer.name %></td>
-        <td><% customer.nickneme %></td>
+        <td><%= link_to  admin_customer_path(customer.id) do %>
+              <%=  customer.name %>
+            <% end %>
+        </td>
+        <td><% customer.nickname %></td>
         <td><% customer.email %></td>
           <% if customer.is_deleted? %>
             <td>退会</td>
@@ -27,4 +29,4 @@
   </tbody>
 </table>
 
-
+<%= paginate @customers %>

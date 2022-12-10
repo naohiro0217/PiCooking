@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
 
   validates :name, presence: true
   # プロフィールは５０字以内
-  validates :introduction, presence: true, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
   validates :email, presence: true
 
 end
