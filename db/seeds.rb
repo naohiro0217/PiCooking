@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 管理者のメールアドレスの初期設定
+# 管理者の情報の初期設定
 Admin.create(
   email: "admin@admin",
   password: "adminadmin"
   )
 
-# 会員側のメールアドレス
+# 会員側の情報の初期設定
 Customer.create(
   [
     {
