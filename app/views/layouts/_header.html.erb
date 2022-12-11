@@ -4,8 +4,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+
         <% if admin_signed_in? %>
           <% if request.fullpath.include? "/admin" %>
             <li>
@@ -19,7 +18,7 @@
               <% end %>
             </li>
             <li>
-              <link_to destroy_admin_session_path, class: 'nav-link text-light' do %>
+              <%= link_to destroy_admin_session_path, class: 'nav-link text-light' do %>
                 ログアウト
               <% end %>
             </li>
@@ -44,7 +43,7 @@
             ようこそ、<%= current_customer.name %>さん！
           </li>
           <li>
-            <%= link_to customer_path(current_user),class: 'nav-link text-light' do %>
+            <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>
               マイページ
             <% end %>
           </li>
@@ -70,7 +69,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to home_about_path,class: 'nav-link text-light' do %>
+            <%= link_to about_path,class: 'nav-link text-light' do %>
                About
             <% end %>
           </li>
