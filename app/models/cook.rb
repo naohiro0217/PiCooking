@@ -1,12 +1,12 @@
 class Cook < ApplicationRecord
-  
-  belongss_to :customer
-  
+
+  belongs_to :customer
+
   has_many :cook_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   has_one_attached :image
-  
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -14,5 +14,5 @@ class Cook < ApplicationRecord
     end
     image
   end
-  
+
 end

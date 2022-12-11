@@ -19,12 +19,14 @@ Customer.create(
       email: "cook@cook",
       password: "cookcook",
       name: "料理太郎",
+      nickname: "テスト１",
       is_deleted: "false",
     },
     {
       email: "eat@eat",
       password: "eatear",
       name: "料理二郎",
+      nickname: "テスト２",
       is_deleted: "false",
     }
   ]

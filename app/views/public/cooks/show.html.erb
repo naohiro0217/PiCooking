@@ -4,7 +4,7 @@
 <table>
   <tr>
     <%= image_tag @customer.get_profile_image(100,100) %>
-    <%= link_to @customer.name, "/users/#{@customer.id}" %>
+    <%= link_to @customer.name, "/customers/#{@customer.id}" %>
   </tr>
 
   <tr>
@@ -24,9 +24,9 @@
   </tr>
 
   <tr>
-    <% if @post_image.customer == current_customer %>
+    <% if @cook.customer == current_customer %>
       <%= link_to "編集する", edit_cook_path %>
-      <%= link_to "削除", post_image_path(@cook), method: :delete %>
+      <%= link_to "削除", cook_path(@cook), method: :delete %>
     <% end %>
   </tr>
 

@@ -24,7 +24,7 @@ class Public::CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
-    @cook.save
+    @cook.save!
     redirect_to cooks_path
   end
 

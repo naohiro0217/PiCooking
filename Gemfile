@@ -62,3 +62,6 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 # rails c用
 gem 'pry-rails'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
