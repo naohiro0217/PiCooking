@@ -1,0 +1,89 @@
+<header>
+
+      <a class="navbar-brand" href="/"><span>PiCooking</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+          <% if request.fullpath.include? "/admin" %>
+            <li>
+              <%= link_to admin_cooks_path, class: 'nav-link text-light' do %>
+                投稿一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+                会員一覧
+              <% end %>
+            </li>
+            <li>
+              <link_to destroy_admin_session_path, class: 'nav-link text-light' do %>
+                ログアウト
+              <% end %>
+            </li>
+          <% else %>
+            <li class="my-auto pr-5 mr-5 text-light">
+              現在、管理者アカウントでログインしています。
+            </li>
+            <li>
+              <%= link_to cooks_path, class: 'nav-link text-light' do %>
+                投稿一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, class: 'nav-link text-light' do %>
+                ログアウト
+              <% end %>
+            </li>
+          <% end %>
+
+        <% elsif customer_signed_in? %>
+          <li class="my-auto pr-5 mr-5 text-light">
+            ようこそ、<%= current_customer.name %>さん！
+          </li>
+          <li>
+            <%= link_to customer_path(current_user),class: 'nav-link text-light' do %>
+              マイページ
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to customers_path,class: 'nav-link text-light' do %>
+               会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to cooks_path ,class: 'nav-link text-light' do %>
+               投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %>
+               ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path,class: 'nav-link text-light' do %>
+               Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to home_about_path,class: 'nav-link text-light' do %>
+               About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
+               新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %>
+               ログイン
+            <% end %>
+          </li>
+        <% end %>
+
+</header>
