@@ -1,7 +1,7 @@
 class CookComment < ApplicationRecord
 
-  belongss_to :customer
-  belongss_to :cook
+  belongs_to :customer
+  belongs_to :cook
 
   validates :comment, presence: true
 end

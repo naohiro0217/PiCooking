@@ -24,8 +24,10 @@
           <%= link_to cook.title,cook_path(cook), class: "cook_#{cook.id}" %>
         </td>
 
-        <td><% cook.body %></td>
+        <td><%= cook.body %></td>
+        <td><%= image_tag @cook.get_image, size:"350x250" %></td>
       </tr>
+
 
     <% end %>
   </tbody>
