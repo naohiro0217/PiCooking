@@ -13,7 +13,7 @@ class Public::CooksController < ApplicationController
 
   def edit
     @cook = Cook.find(params[:id])
-    @customer = @cook.user
+    @customer = @cook.customer
     if @customer == current_customer
       render :edit
     else
@@ -29,9 +29,9 @@ class Public::CooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    if @book.update(book_params)
-      redirect_to book_path
+    @cook = Cook.find(params[:id])
+    if @cook.update(cook_params)
+      redirect_to cook_path
     else
       render :edit
     end
