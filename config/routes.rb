@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     end
     resources :customers, only: [:index,:show,:edit,:update]
     # 会員側の退会確認画面,退会処理
-    get '/customers/quit' => 'customers#quit'
-    patch '/customers/out' => 'customers#out'
+    get '/customers/:id/quit' => 'customers#quit', as: 'quit'
+    patch '/customers/:id/out' => 'customers#out', as: 'out'
   end
 
   namespace :admin do

@@ -18,8 +18,11 @@
     <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "introduction" %>
   </div>
 
-  <dic>
+  <div>
     <%= f.submit "変更を保存" %>
-  </dic>
+  </div>
+  <div>
+    <%= link_to "退会する", quit_path %>
+  </div>
 
 <% end %>

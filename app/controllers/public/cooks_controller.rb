@@ -9,6 +9,7 @@ class Public::CooksController < ApplicationController
   def show
     @cook = Cook.find(params[:id])
     @customer = @cook.customer
+    @cook_comment = CookComment.new
   end
 
   def edit
