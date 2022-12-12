@@ -3,7 +3,7 @@ class Public::CooksController < ApplicationController
 
   def index
     @cooks = Cook.all
-    @cook = Cook.new
+    @cook_new = Cook.new
   end
 
   def show
@@ -47,7 +47,7 @@ class Public::CooksController < ApplicationController
   private
 
   def cook_params
-    params.require(:cook).permit(:title, :image, :body)
+    params.require(:cook).permit(:title, :image, :body, :rate)
   end
 
 

@@ -32,7 +32,9 @@
         </td>
 
         <td><%= cook.body %></td>
-        <td><%= image_tag @cook.get_image, size:"350x250" %></td>
+        <td>コメント数: <%= cook.cook_comments.count %></td>
+        <td><%= render "public/cooks/static_rate", cook: cook %></td>
+        <td><%= image_tag cook.get_image, size:"350x250" %></td>
       </tr>
 
 

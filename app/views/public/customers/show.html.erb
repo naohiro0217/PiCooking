@@ -27,15 +27,7 @@
 <h5>投稿フォーム</h5>
 
 
-  <%= form_with model: @cook do |f| %>
-    <h4>画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>タイトル</h4>
-      <%= f.text_field :title %>
-    <h4>感想</h4>
-      <%= f.text_area :body %>
-    <%= f.submit '投稿' %>
-  <% end %>
+  <%= render 'public/cooks/form', cook: @cook %>
 
 <h1><%= @customer.nickname %>さんの投稿一覧</h1>
 <table class = "table table-hover table-inverse" >

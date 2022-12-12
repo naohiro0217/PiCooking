@@ -11,7 +11,7 @@ class CreateCooks < ActiveRecord::Migration[6.1]
       t.text :body, null: false
 
       # レビューの星
-      t.float :rake, null: false, default: 0
+      t.float :rate, null: false
 
       t.timestamps
     end
