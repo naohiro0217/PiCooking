@@ -40,7 +40,7 @@
 
         <% elsif customer_signed_in? %>
           <li class="my-auto pr-5 mr-5 text-light">
-            ようこそ、<%= current_customer.name %>さん！
+            ようこそ、<%= current_customer.nickname %>さん！
           </li>
           <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>

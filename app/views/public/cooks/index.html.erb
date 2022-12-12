@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <td></td>
+      <td>ユーザーネーム</td>
       <td>タイトル</td>
       <td>感想</td>
       <td colspan="3"></th>
@@ -21,7 +22,13 @@
         </td>
 
         <td>
-          <%= link_to cook.title,cook_path(cook), class: "cook_#{cook.id}" %>
+          <%= link_to(cook.customer) do %>
+            <%= cook.customer.nickname %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to cook.title, cook_path(cook), class: "cook_#{cook.id}" %>
         </td>
 
         <td><%= cook.body %></td>
