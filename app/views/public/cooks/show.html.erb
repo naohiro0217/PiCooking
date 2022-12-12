@@ -4,7 +4,7 @@
 <table>
   <tr>
     <%= image_tag @customer.get_profile_image(100,100) %>
-    <%= link_to @customer.name, "/customers/#{@customer.id}" %>
+    <%= link_to @customer.nickname, "/customers/#{@customer.id}" %>
   </tr>
 
   <tr>

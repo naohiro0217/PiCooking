@@ -11,6 +11,8 @@ class Public::CookCommentsController < ApplicationController
   end
 
   def destroy
+    CookComment.find(params[:id]).destroy
+    redirect_to cook_path(params[:cook_id])
   end
 
   private
