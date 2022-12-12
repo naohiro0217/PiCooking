@@ -32,7 +32,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.where(is_deleted: false)
   end
 
   private
