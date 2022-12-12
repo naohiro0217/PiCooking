@@ -8,7 +8,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -21,6 +21,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
+    @customer = Customer.all
   end
 
   private
