@@ -1,6 +1,10 @@
 class Public::CooksController < ApplicationController
   # before_action :authenticate_customer!
 
+  def new
+    @cook = Cook.new
+  end
+
   def index
     @cooks = Cook.all
     @cook_new = Cook.new

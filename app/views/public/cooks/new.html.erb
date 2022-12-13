@@ -1,6 +1,7 @@
 
+<h1>新規投稿を作成</h1>
 
-  <%= form_with model: cook do |f| %>
+  <%= form_with model: @cook do |f| %>
     <h4>画像</h4>
       <%= f.file_field :image, accept: "image/*" %>
     <h4>タイトル</h4>
@@ -9,7 +10,7 @@
       <%= f.text_area :body %>
 
 
-    <% if cook.id === nil %>
+    <% if @cook.id === nil %>
       <div class="form-group" id="star">
         <%= f.label :rate %>
         <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>

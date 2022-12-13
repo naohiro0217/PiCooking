@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    resources :cooks, only: [:index,:show,:edit,:create,:destroy,:update] do
+    resources :cooks, only: [:index,:show,:edit,:create,:destroy,:update, :new] do
       resources :cook_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
