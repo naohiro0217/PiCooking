@@ -1,6 +1,7 @@
 class Admin::CookCommentsController < ApplicationController
   # before_action :authenticate_admin!
-
+  
+  # 管理者側はdestroyのみ
   def destroy
     CookComment.find(params[:id]).destroy
     redirect_to admin_cook_path(params[:cook_id])

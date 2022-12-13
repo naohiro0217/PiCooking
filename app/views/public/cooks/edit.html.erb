@@ -13,26 +13,23 @@
     <%= f.file_field :image, accept: "image/*" %>
 
   <h6>評価</h6>
+  <%# レビュー機能 %>
+  <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
 
+  <div id="post_raty"></div>
+  <script>
 
+    var raty_elem = document.querySelector('#post_raty');
+    raty_elem.innerHTML = ""
+    var option = {
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        scoreName: 'cook[rate]',
+      };
+    raty(raty_elem,option);
 
-        <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
-
-
-      <div id="post_raty"></div>
-      <script>
-
-        var raty_elem = document.querySelector('#post_raty');
-        raty_elem.innerHTML = ""
-        var option = {
-            starOn: "<%= asset_path('star-on.png') %>",
-            starOff: "<%= asset_path('star-off.png') %>",
-            starHalf: "<%= asset_path('star-half.png') %>",
-            scoreName: 'cook[rate]',
-          };
-        raty(raty_elem,option);
-
-      </script>
+  </script>
 
 
   <%= f.submit '変更を保存' %>

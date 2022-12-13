@@ -28,6 +28,7 @@
     <tr>
       <p>コメント数:<%= @cook.cook_comments.count %></p>
     </tr>
+    <%# レビュー機能 %>
     <tr>
       <%= render 'public/cooks/rate', cook: @cook %>
     </tr>
@@ -38,5 +39,6 @@
 
 </table>
 
+<%# コメント一覧 %>
 <%= render 'admin/cook_comments/index', cook: @cook %>
 

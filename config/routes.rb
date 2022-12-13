@@ -30,8 +30,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers, only: [:index, :edit, :update, :show]
-    resources :cooks, only: [:index, :show, :edit, :destroy] do
-      resources :cook_comments, only: [:destroy]
+    resources :cooks, only: [:index, :show, :destroy] do
+      resources :cook_comments, only: [:destroy]  # 管理者側はdestroyのみ
     end
   end
 
