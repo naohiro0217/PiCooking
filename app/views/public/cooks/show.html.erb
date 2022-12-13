@@ -24,6 +24,9 @@
   </tr>
 
   <tr>コメント数: <%= @cook.cook_comments.count %></tr>
+  <tr>
+    <%= render 'public/cooks/rate', cook: @cook %>
+  </tr>
 
   <tr>
     <% if @cook.customer == current_customer %>

@@ -12,6 +12,29 @@
   <h4>画像</h4>
     <%= f.file_field :image, accept: "image/*" %>
 
+  <h6>評価</h6>
+
+
+
+        <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
+
+
+      <div id="post_raty"></div>
+      <script>
+        $(document).on('turbolinks:load', function() {
+        let raty_elem = document.querySelector('#post_raty');
+        raty_elem.innerHTML = ""
+        let option = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'cook[rate]',
+          };
+        raty(raty_elem,option);
+       });
+      </script>
+
+
   <%= f.submit '変更を保存' %>
 
 <% end %>
