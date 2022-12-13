@@ -29,8 +29,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :cooks, only: [:index, :show, :edit, :destroy]
     resources :customers, only: [:index, :edit, :update, :show]
+    resources :cooks, only: [:index, :show, :edit, :destroy] do
+      resources :cook_comments, only: [:destroy]
+    end
   end
 
 

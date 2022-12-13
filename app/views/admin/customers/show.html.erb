@@ -51,22 +51,24 @@
     </thead>
 
     <tbody>
-    <% @cooks.each do |cook| %>
-      <tr>
-        <td>
-          <%= link_to customer_path(@customer.id) do %>
-              <%= image_tag @customer.get_profile_image(100,100) %>
-          <% end %>
-        </td>
-        <td>
-          <span><%= link_to cook.title, "/cooks/#{cook.id}" %></span>
-        </td>
-        <td>
-          <%= cook.body %>
-        </td>
-        <td><%= image_tag cook.get_image, size:"350x250" %></td>
-      </tr>
+      <% @cooks.each do |cook| %>
+        <tr>
+          <td>
+            <%= link_to customer_path(@customer.id) do %>
+                <%= image_tag @customer.get_profile_image(100,100) %>
+            <% end %>
+          </td>
+          <td>
+            <span><%= link_to cook.title, "/cooks/#{cook.id}" %></span>
+          </td>
+          <td>
+            <%= cook.body %>
+          </td>
+          <td><%= image_tag cook.get_image(300, 300) %></td>
+        </tr>
 
-    <% end %>
+      <% end %>
+      <%= link_to "編集する", edit_admin_cook_path %>
+
     </tbody>
 </table>

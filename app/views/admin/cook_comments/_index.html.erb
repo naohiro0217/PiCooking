@@ -1,0 +1,21 @@
+
+<table>
+  <% cook.cook_comments.each do |cook_comment| %>
+    <tr>
+      <td>
+        <%= link_to admin_customer_path(cook_comment.customer) do %>
+          <%= image_tag cook_comment.customer.get_profile_image(100, 100) %><br>
+          <%= cook_comment.customer.nickname %>
+        <% end %>
+      </td>
+      <td>
+        <%= cook_comment.comment %>
+        <%= cook_comment.created_at.strftime('%Y/%m/%d') %>
+      </td>
+
+      <td>
+        <%= link_to "コメントを削除", admin_cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

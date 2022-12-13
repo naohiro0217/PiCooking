@@ -1,1 +1,42 @@
 
+
+
+
+<table>
+
+    <tr>
+      <%= image_tag @customer.get_profile_image(100,100) %>
+      <%= link_to @customer.nickname, admin_customer_path(@customer.id) %>
+    </tr>
+
+    <tr>
+      <%= @cook.title %>
+    </tr>
+
+    <tr>
+      <%= @cook.body %>
+    </tr>
+
+    <tr>
+      <%= image_tag @cook.get_image(300, 300) %>
+    </tr>
+
+    <tr>
+      <p>投稿日:<%= @cook.created_at.strftime('%Y/%m/%d') %></p>
+    </tr>
+
+    <tr>
+      <p>コメント数:<%= @cook.cook_comments.count %></p>
+    </tr>
+    <tr>
+      <%= render 'public/cooks/rate', cook: @cook %>
+    </tr>
+
+    <tr>
+      <%= link_to "削除", admin_cook_path(@cook), method: :delete %>
+    </tr>
+
+</table>
+
+<%= render 'admin/cook_comments/index', cook: @cook %>
+

@@ -2,12 +2,10 @@ class Public::CookCommentsController < ApplicationController
 
   def create
     cook = Cook.find(params[:cook_id])
-     comment = current_customer.cook_comments.new(cook_comment_params)
+    comment = current_customer.cook_comments.new(cook_comment_params)
     comment.cook_id = cook.id
     comment.save
     redirect_to cook_path(cook)
-    #@cook = Cook.find(params[:book_id])
-    #@cook_comment = CookComment.new
   end
 
   def destroy

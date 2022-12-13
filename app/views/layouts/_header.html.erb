@@ -6,7 +6,11 @@
       </button>
 
         <% if admin_signed_in? %>
-          <% if request.fullpath.include? "/admin" %>
+        <%# 管理者でログイン %>
+
+            <li class="my-auto pr-5 mr-5 text-light">
+              現在、管理者アカウントでログインしています。
+            </li>
             <li>
               <%= link_to admin_cooks_path, class: 'nav-link text-light' do %>
                 投稿一覧
@@ -22,22 +26,8 @@
                 ログアウト
               <% end %>
             </li>
-          <% else %>
-            <li class="my-auto pr-5 mr-5 text-light">
-              現在、管理者アカウントでログインしています。
-            </li>
-            <li>
-              <%= link_to cooks_path, class: 'nav-link text-light' do %>
-                投稿一覧
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
-                ログアウト
-              <% end %>
-            </li>
-          <% end %>
 
+        <%# 会員でログイン %>
         <% elsif customer_signed_in? %>
           <li class="my-auto pr-5 mr-5 text-light">
             ようこそ、<%= current_customer.nickname %>さん！
@@ -67,6 +57,8 @@
                ログアウト
             <% end %>
           </li>
+
+        <%# ログイン前の状態 %>
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>

@@ -1,3 +1,49 @@
 
 <h4>投稿一覧</h4>
 
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td>ユーザーネーム</td>
+      <td>タイトル</td>
+      <td>感想</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cooks.each do |cook| %>
+      <tr>
+        <td>
+          <%= link_to admin_customer_path(cook.customer) do %>
+            <%= image_tag cook.customer.get_profile_image(50, 50) %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= cook.customer.nickname %>
+        </td>
+
+        <td>
+          <%= link_to cook.title, admin_cook_path(cook), class: "cook_#{cook.id}" %>
+        </td>
+
+        <td>
+          <%= cook.body %>
+        </td>
+
+        <td>
+           コメント数:<%= cook.cook_comments.count %>
+        </td>
+
+        <td>
+          <%= render "public/cooks/static_rate", cook: cook %>
+        </td>
+
+        <td>
+          <%= image_tag cook.get_image(150, 150) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
