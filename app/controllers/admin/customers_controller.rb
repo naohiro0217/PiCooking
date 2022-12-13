@@ -6,10 +6,11 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @cook = Cook.new
+    @cooks = @customer.cooks
   end
 
   def edit
+    @customer = Customer.find(params[:id])
   end
 
   def update

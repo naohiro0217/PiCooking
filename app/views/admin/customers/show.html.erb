@@ -6,22 +6,22 @@
 <table>
   <tr>
     <td>会員ID</td>
-    <td><% @customer.id %></td>
+    <td><%= @customer.id %></td>
   </tr>
 
   <tr>
     <td>ユーザーネーム</td>
-    <td><% @customer.nickname %></td>
+    <td><%= @customer.nickname %></td>
   </tr>
 
   <tr>
     <td>フルネーム</td>
-    <td><% @customer.name %></td>
+    <td><%= @customer.name %></td>
   </tr>
 
   <tr>
     <td>メールアドレス</td>
-    <td><% @customer.email %></td>
+    <td><%= @customer.email %></td>
   </tr>
 
   <tr>
@@ -38,3 +38,35 @@
 <%= link_to "編集する", edit_admin_customer_path %>
 
 <%= link_to "会員一覧に戻る", admin_customers_path %>
+
+<h1><%= @customer.nickname %>さんの投稿一覧</h1>
+<table class = "table table-hover table-inverse" >
+    <thead>
+        <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th>感想</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @cooks.each do |cook| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(@customer.id) do %>
+              <%= image_tag @customer.get_profile_image(100,100) %>
+          <% end %>
+        </td>
+        <td>
+          <span><%= link_to cook.title, "/cooks/#{cook.id}" %></span>
+        </td>
+        <td>
+          <%= cook.body %>
+        </td>
+        <td><%= image_tag cook.get_image, size:"350x250" %></td>
+      </tr>
+
+    <% end %>
+    </tbody>
+</table>
