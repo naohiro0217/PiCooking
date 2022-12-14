@@ -28,8 +28,14 @@ class Public::CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
-    @cook.save!
-    redirect_to cooks_path
+    tag_list = params[:cook][:tag_name].split(',')
+    if @cook.save!
+      @cook.save_tags(tag_list)
+      flash[:notice] = "投稿に成功しました。"
+      redirect_to cooks_path
+    else
+      render :new
+    end
   end
 
   def update

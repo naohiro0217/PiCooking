@@ -2,17 +2,26 @@
 <h1>新規投稿を作成</h1>
 
   <%= form_with model: @cook do |f| %>
-    <h4>画像</h4>
+    <div class = "form-group">
+      <%= f.label :画像 %><br>
       <%= f.file_field :image, accept: "image/*" %>
-    <h4>タイトル</h4>
-      <%= f.text_field :title %>
-    <h4>感想</h4>
-      <%= f.text_area :body %>
-
+    </div>
+    <div class = "form-group">
+      <%= f.label :タイトル %><br>
+      <%= f.text_field :title, class: 'form-control cook_title' %>
+    </div>
+    <div class = "form-group">
+      <%= f.label :感想 %><br>
+      <%= f.text_area :body, class: 'form-control cook_body'%>
+    </div>
+    <div class = "form-group" %>
+      <%= f.label :タグ %><br>
+      <%= f.text_field :tag_name, class: 'form-control cook_tag_name' %>
+    </div>
 
     <% if @cook.id === nil %>
       <div class="form-group" id="star">
-        <%= f.label :rate %>
+        <%= f.label :評価 %>
         <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
       </div>
 
