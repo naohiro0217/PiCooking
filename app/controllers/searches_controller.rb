@@ -1,14 +1,14 @@
-class Public::SearchesController < ApplicationController
+class SearchesController < ApplicationController
   # before_action :authenticate_customer!
 
   def search
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]
-    if @model == 'user'
-      @records = User.search_for(@content, @method)
-    elsif @model == 'book'
-      @records = Book.search_for(@content, @method)
+    if @model == 'customer'
+      @records = Customer.search_for(@content, @method)
+    elsif @model == 'cook'
+      @records = Cook.search_for(@content, @method)
     elsif @model == 'tag'
       @records = Tag.search_books_for(@content, @method)
     end
