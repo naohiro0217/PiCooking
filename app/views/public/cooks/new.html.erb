@@ -27,17 +27,15 @@
 
       <div id="post_raty"></div>
       <script>
-        $(document).on('turbolinks:load', function() {
-        let raty_elem = document.querySelector('#post_raty');
+        var raty_elem = document.querySelector('#post_raty');
         raty_elem.innerHTML = ""
-        let option = {
+        var option = {
             starOn: "<%= asset_path('star-on.png') %>",
             starOff: "<%= asset_path('star-off.png') %>",
             starHalf: "<%= asset_path('star-half.png') %>",
             scoreName: 'cook[rate]',
           };
         raty(raty_elem,option);
-       });
       </script>
 
     <% end %>

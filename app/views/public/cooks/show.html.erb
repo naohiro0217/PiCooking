@@ -25,6 +25,11 @@
 
   <tr>コメント数: <%= @cook.cook_comments.count %></tr>
   <tr>
+    <% cook.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
+  </tr>
+  <tr>
     <%= render 'public/cooks/rate', cook: @cook %>
   </tr>
 

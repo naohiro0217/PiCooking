@@ -31,13 +31,13 @@
         </td>
 
         <td><%= cook.body %></td>
-        <td>コメント数: <%= cook.cook_comments.count %></td>
         <td>
-          <%# cook.tags.each do |tag| %>
-            <%= cook.tag_name %>
-          <%# end %>
+          <% cook.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
         </td>
-        <td><%= render "public/cooks/static_rate", cook: cook %></td>
+        <td><%= render "public/cooks/rate", cook: cook %></td>
+        <td>コメント数: <%= cook.cook_comments.count %></td>
         <td><%= image_tag cook.get_image(150, 150) %></td>
       </tr>
 

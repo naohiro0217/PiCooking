@@ -54,21 +54,21 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
 
   create_table "cook_comments", force: :cascade do |t|
     t.text "comment"
-    t.integer "customer_id", null: false
-    t.integer "cook_id", null: false
+    t.integer "customer_id"
+    t.integer "cook_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cook_tags", force: :cascade do |t|
-    t.integer "cook_id", null: false
-    t.integer "tag_id", null: false
+    t.integer "cook_id"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cooks", force: :cascade do |t|
-    t.integer "customer_id", null: false
+    t.integer "customer_id"
     t.string "title", null: false
     t.text "body", null: false
     t.float "rate", null: false
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -3,7 +3,7 @@ class CreateTags < ActiveRecord::Migration[6.1]
     create_table :tags do |t|
 
       # タグ名
-      t.string :name
+      t.string :name, null: false
 
       t.timestamps
     end

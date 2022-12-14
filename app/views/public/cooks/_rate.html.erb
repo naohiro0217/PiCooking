@@ -1,10 +1,9 @@
 
 <div id="rate_<%= cook.id %>"></div>
 <script>
-$(document).on('turbolinks:load', function() {
-    let raty_<%= cook.id %> = document.querySelector('#rate_<%= cook.id %>');
+    var raty_<%= cook.id %> = document.querySelector('#rate_<%= cook.id %>');
     rate_<%= cook.id %>.innerHTML = ""
-    let option_<%= cook.id %> = {
+    var option_<%= cook.id %> = {
         starOn: "<%= asset_path('star-on.png') %>",
         starOff: "<%= asset_path('star-off.png') %>",
         starHalf: "<%= asset_path('star-half.png') %>",
@@ -12,5 +11,4 @@ $(document).on('turbolinks:load', function() {
         readOnly: true,
       };
     raty(raty_<%= cook.id %> ,option_<%= cook.id %>);
-});
 </script>

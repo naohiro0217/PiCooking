@@ -25,6 +25,18 @@ class Cook < ApplicationRecord
     end
   end
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Cook.where(title: content)
+    elsif method == 'forward'
+      Cook.where('title LIKE ?', content+'%')
+    elsif method == 'backward'
+      Cook.where('title LIKE ?', '%'+content)
+    else
+      Cook.where('title LIKE ?', '%'+content+'%')
+    end
+  end
+
   has_one_attached :image
 
   def get_image(width, height)
