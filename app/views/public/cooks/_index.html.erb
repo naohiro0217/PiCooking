@@ -31,9 +31,7 @@
 
         <td><%= cook.body %></td>
         <td>
-          <% cook.tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
+            <%= cook.name %>
         </td>
         <td><%= render "public/cooks/rate", cook: cook %></td>
         <td>コメント数: <%= cook.cook_comments.count %></td>

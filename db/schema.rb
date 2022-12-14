@@ -71,7 +71,8 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
     t.integer "customer_id"
     t.string "title", null: false
     t.text "body", null: false
-    t.float "rate", null: false
+    t.float "rate", default: 0.0
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

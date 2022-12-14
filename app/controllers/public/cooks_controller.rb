@@ -28,9 +28,7 @@ class Public::CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
-    tag_list = params[:cook][:tag_name].split(',')
     if @cook.save!
-      @cook.save_tags(tag_list)
       flash[:notice] = "投稿に成功しました。"
       redirect_to cooks_path
     else
@@ -56,7 +54,7 @@ class Public::CooksController < ApplicationController
   private
 
   def cook_params
-    params.require(:cook).permit(:title, :image, :body, :rate)
+    params.require(:cook).permit(:title, :image, :body, :rate, :name)
   end
 
 

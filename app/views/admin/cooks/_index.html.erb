@@ -6,6 +6,8 @@
       <td>ユーザーネーム</td>
       <td>タイトル</td>
       <td>感想</td>
+      <td>タグ</td>
+      <td>評価</td>
     </tr>
   </thead>
 
@@ -31,11 +33,17 @@
         </td>
 
         <td>
-           コメント数:<%= cook.cook_comments.count %>
+            <%= cook.name %>
         </td>
+
+
         <%# レビュー機能の部分テンプレート %>
         <td>
           <%= render "public/cooks/rate", cook: cook %>
+        </td>
+
+        <td>
+           コメント数:<%= cook.cook_comments.count %>
         </td>
 
         <td>
