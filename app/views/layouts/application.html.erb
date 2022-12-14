@@ -13,13 +13,15 @@
   <body>
     <%= render 'layouts/header' %>
     <main>
-      <p id="notice"><%= notice %></p>
-      <div class="container">
-        <div class="row justify-content-start mb-2">
-          <div class="mr-3"><%= render 'searches/form' %></div>
-          <div class="mr-3"><%= render "searches/tag_form" %></div>
+      <%# ログイン中にのみ検索フォームを表示 %>
+      <% if admin_signed_in? || customer_signed_in? %>
+        <div class="container">
+          <div class="row justify-content-start mb-2">
+            <div class="mr-3"><%= render 'searches/form' %></div>
+            <div class="mr-3"><%= render "searches/tag_form" %></div>
+          </div>
         </div>
-      </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>
