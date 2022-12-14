@@ -7,6 +7,8 @@
       <td>ユーザーネーム</td>
       <td>タイトル</td>
       <td>感想</td>
+      <td>タグ</td>
+      <td>評価</td>
     </tr>
 
 
@@ -30,6 +32,11 @@
 
         <td><%= cook.body %></td>
         <td>コメント数: <%= cook.cook_comments.count %></td>
+        <td>
+          <%# cook.tags.each do |tag| %>
+            <%= cook.tag_name %>
+          <%# end %>
+        </td>
         <td><%= render "public/cooks/static_rate", cook: cook %></td>
         <td><%= image_tag cook.get_image(150, 150) %></td>
       </tr>

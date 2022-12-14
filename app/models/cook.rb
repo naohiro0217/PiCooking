@@ -1,7 +1,6 @@
 class Cook < ApplicationRecord
 
   belongs_to :customer
-
   has_many :cook_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :cook_tags, dependent: :destroy
