@@ -1,48 +1,6 @@
 
 <h5>投稿一覧</h5>
-<table>
-  <thead>
-    <tr>
-      <td></td>
-      <td>ユーザーネーム</td>
-      <td>タイトル</td>
-      <td>感想</td>
-      <td>タグ</td>
-      <td>評価</td>
-    </tr>
 
-
-  </thead>
-  <tbody>
-    <% @cooks.each do |cook| %>
-      <tr>
-        <td>
-          <%= link_to(cook.customer) do %>
-            <%= image_tag cook.customer.get_profile_image(40, 40) %>
-          <% end %>
-        </td>
-
-        <td>
-            <%= cook.customer.nickname %>
-        </td>
-
-        <td>
-          <%= link_to cook.title, cook_path(cook), class: "cook_#{cook.id}" %>
-        </td>
-
-        <td><%= cook.body %></td>
-        <td>
-          <% cook.tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
-        </td>
-        <td><%= render "public/cooks/rate", cook: cook %></td>
-        <td>コメント数: <%= cook.cook_comments.count %></td>
-        <td><%= image_tag cook.get_image(150, 150) %></td>
-      </tr>
-
-
-    <% end %>
-  </tbody>
-</table>
+<%# 投稿一覧ページ %>
+<%= render 'public/cooks/index', cooks: @cooks %>
 

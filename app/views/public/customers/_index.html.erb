@@ -1,0 +1,21 @@
+
+<table>
+  <thead>
+    <th></th>
+    <th>ユーザーネーム</th>
+  </thead>
+
+  <tbody>
+    <% customers.each do |customer| %>
+
+      <tr>
+        <td>
+          <%= image_tag customer.get_profile_image(100, 100) %>
+        </td>
+        <td>
+          <%= link_to customer.nickname, customer_path(customer.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

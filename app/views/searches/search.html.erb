@@ -1,0 +1,7 @@
+<% if @model == 'customer' %>
+	<h3>"<%= @content %>"</h3>
+  <%= render 'customers/index', customers: @records %>
+<% elsif @model == 'cook' || @model == 'tag' %>
+	<h3>"<%= @content %>"</h3>
+  <%= render 'cooks/index', cooks: @records %>
+<% end %>
