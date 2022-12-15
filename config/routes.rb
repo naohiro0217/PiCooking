@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  # ゲストログイン機能
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
 
   scope module: :public do
     resources :cooks, only: [:index,:show,:edit,:create,:destroy,:update, :new] do
@@ -37,6 +42,7 @@ Rails.application.routes.draw do
 
   # 検索機能
   get '/search', to: 'searches#search'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

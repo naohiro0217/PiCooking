@@ -64,11 +64,13 @@
           <td>
             <%= cook.body %>
           </td>
+          <td><%= cook.name %></td>
+          <td><%= render "public/cooks/rate", cook: cook %></td>
           <td><%= image_tag cook.get_image(300, 300) %></td>
         </tr>
 
       <% end %>
-      <%= link_to "編集する", edit_admin_cook_path %>
+      <%= link_to "編集する", edit_admin_customer_path %>
 
     </tbody>
 </table>

@@ -35,16 +35,16 @@ class Cook < ApplicationRecord
   end
 
   def self.search_cooks_for(content, method)
-    if method == 'rate.count: 5'
-      Cook.where('count: 5')
-    elsif method == 'rate.count: 4'
-      Cook.where('count: 4')
-    elsif method == 'rate.count: 3'
-      Cook.where('count: 3')
-    elsif method == 'rate.count: 2'
-      Cook.where('count: 2')
+    if method == 'star_count: 5'
+      Cook.where('star_count: 5')
+    elsif method == 'star_count: 4'
+      Cook.where('star_count: 4')
+    elsif method == 'star_count: 3'
+      Cook.where('star_count: 3')
+    elsif method == 'star_count: 2'
+      Cook.where('star_count: 2')
     else
-      Cook.where('count: 1')
+      Cook.where('star_count: 1')
     end
   end
 

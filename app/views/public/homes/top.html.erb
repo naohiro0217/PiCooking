@@ -1,3 +1,9 @@
 <h4>トップページです</h4>
 
-<%= link_to "ログイン画面へ", new_customer_session_path %>
+<div>
+  <%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %>
+</div>
+
+<div>
+  <%= link_to "ログイン画面へ", new_customer_session_path %>
+</div>

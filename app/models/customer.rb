@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   validates :introduction, length: { maximum: 50 }
   validates :email, presence: true
 
+  # プロフィール画像
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
@@ -23,6 +24,7 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  # 検索機能
   def self.search_for(content, method)
     if method == 'perfect'
       Customer.where(nickname: content)
@@ -35,8 +37,17 @@ class Customer < ApplicationRecord
     end
   end
 
+  # 退会機能
   def active_for_authentication?
     super && (is_deleted == false)
+  end
+
+  # ゲストログイン機能
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |customer|
+      #customer.password = SecureRandom.urlsafe_base64
+      #customer.name = "guestuser"
+    end
   end
 
 end
