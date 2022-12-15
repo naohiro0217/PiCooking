@@ -23,20 +23,32 @@ class Cook < ApplicationRecord
   end
 
   def self.search_cooks_for(content, method)
-
     if method == 'perfect'
-      Cook.name.where(name: content)
+      Cook.where(name: content)
     elsif method == 'forward'
-      Cook.name.where('name LIKE ?', content + '%')
+      Cook.where('name LIKE ?', content + '%')
     elsif method == 'backward'
-      Cook.name.where('name LIKE ?', '%' + content)
+      Cook.where('name LIKE ?', '%' + content)
     else
-      Cook.name.where('name LIKE ?', '%' + content + '%')
+      Cook.where('name LIKE ?', '%' + content + '%')
     end
-
-    return cook.name.inject(init = []) {|result, cook| name| result + cook.name.cooks}
-
   end
+
+  def self.search_cooks_for(content, method)
+    if method == 'rate.count: 5'
+      Cook.where('count: 5')
+    elsif method == 'rate.count: 4'
+      Cook.where('count: 4')
+    elsif method == 'rate.count: 3'
+      Cook.where('count: 3')
+    elsif method == 'rate.count: 2'
+      Cook.where('count: 2')
+    else
+      Cook.where('count: 1')
+    end
+  end
+
+
 
   has_one_attached :image
 

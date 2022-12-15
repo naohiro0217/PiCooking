@@ -6,7 +6,7 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @cooks = @customer.cooks
+    @cooks = @customer.cooks.order(created_at: :DESC)
   end
 
   def edit
@@ -21,7 +21,7 @@ class Admin::CustomersController < ApplicationController
       render "edit"
     end
   end
-  
+
   private
   # 管理者側は退会ステータスの変更のみ
   def customer_params

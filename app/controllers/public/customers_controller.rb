@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @cooks = @customer.cooks
+    @cooks = @customer.cooks.order(created_at: :DESC)
     @cook = Cook.new
   end
 

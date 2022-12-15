@@ -6,7 +6,7 @@ class Public::CooksController < ApplicationController
   end
 
   def index
-    @cooks = Cook.all.order(params[:sort])
+    @cooks = Cook.all.order(params[:sort]).order(created_at: :DESC)
   end
 
   def show
