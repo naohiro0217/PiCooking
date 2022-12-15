@@ -57,5 +57,4 @@ class Public::CooksController < ApplicationController
     params.require(:cook).permit(:title, :image, :body, :rate, :name)
   end
 
-
 end

@@ -1,7 +1,7 @@
 <% if @model == 'customer' %>
-	<h3>"<%= @content %>"</h3>
+	<h3>"<%= @content %>"さんの検索結果</h3>
   <%= render 'public/customers/index', customers: @records || 'admin/customers/index', customers: @records %>
-<% elsif @model == 'cook' || @model == 'tag' %>
-	<h3>"<%= @content %>"</h3>
+<% elsif @model == 'cook' || @model == 'cook.name' || @model == 'cook.rate' %>
+	<h3>"<%= @content %>"の検索結果</h3>
   <%= render 'public/cooks/index', cooks: @records || 'admin/cooks/index', cooks: @records %>
 <% end %>

@@ -25,7 +25,7 @@ class Customer < ApplicationRecord
 
   def self.search_for(content, method)
     if method == 'perfect'
-      Uustomer.where(nickname: content)
+      Customer.where(nickname: content)
     elsif method == 'forward'
       Customer.where('nickname LIKE ?', content + '%')
     elsif method == 'backward'

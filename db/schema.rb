@@ -60,13 +60,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "cook_tags", force: :cascade do |t|
-    t.integer "cook_id"
-    t.integer "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "cooks", force: :cascade do |t|
     t.integer "customer_id"
     t.string "title", null: false
@@ -96,12 +89,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "cook_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
