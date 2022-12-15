@@ -1,7 +1,17 @@
 <% if @model == 'customer' %>
 	<h3>"<%= @content %>"さんの検索結果</h3>
-  <%= render 'public/customers/index', customers: @records || 'admin/customers/index', customers: @records %>
-<% elsif @model == 'cook' || @model == 'cook.name' || @model == 'cook.rate' %>
+	<% if admin_signed_in? %>
+	    <%= render 'admin/customers/index', customers: @records %>
+	<% elsif customer_signed_in? %>
+	    <%= render 'public/customers/index', customers: @records %>
+	<% end %>
+  <%#= render 'public/customers/index', customers: @records || 'admin/customers/index', customers: @records %>
+<% elsif @model == 'cook' || @model == 'tag' || @model == 'rate' %>
 	<h3>"<%= @content %>"の検索結果</h3>
-  <%= render 'public/cooks/index', cooks: @records || 'admin/cooks/index', cooks: @records %>
+  <%#= render 'public/cooks/index', cooks: @records || 'admin/cooks/index', cooks: @records %>
+  <% if admin_signed_in? %>
+      <%= render 'admin/cooks/index', cooks: @records %>
+  <% elsif customer_signed_in? %>
+      <%= render 'public/cooks/index', cooks: @records %>
+  <% end %>
 <% end %>

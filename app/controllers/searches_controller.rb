@@ -10,8 +10,10 @@ class SearchesController < ApplicationController
       @records = Customer.search_for(@content, @method)
     elsif @model == 'cook'
       @records = Cook.search_for(@content, @method)
-    elsif @model == 'cook'
-      @records = Cook.search_cooks_for(@content, @method)
+    elsif @model == 'tag'
+      @records = Cook.search_by_name(@content, @method)
+    elsif @model == 'rate'
+      @records = Cook.search_by_rate(@content)
     end
   end
 end

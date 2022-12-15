@@ -9,6 +9,8 @@ class Cook < ApplicationRecord
   # 感想は２００字以内
   validates :body, presence:true, length:{maximum:200}
 
+  scope :search_by_rate, ->(rate) { where(rate: rate.to_i) }
+
 
   def self.search_for(content, method)
     if method == 'perfect'
@@ -22,7 +24,7 @@ class Cook < ApplicationRecord
     end
   end
 
-  def self.search_cooks_for(content, method)
+  def self.search_by_name(content, method)
     if method == 'perfect'
       Cook.where(name: content)
     elsif method == 'forward'
@@ -34,19 +36,7 @@ class Cook < ApplicationRecord
     end
   end
 
-  def self.search_cooks_for(content, method)
-    if method == 'star_count: 5'
-      Cook.where('star_count: 5')
-    elsif method == 'star_count: 4'
-      Cook.where('star_count: 4')
-    elsif method == 'star_count: 3'
-      Cook.where('star_count: 3')
-    elsif method == 'star_count: 2'
-      Cook.where('star_count: 2')
-    else
-      Cook.where('star_count: 1')
-    end
-  end
+
 
 
 
