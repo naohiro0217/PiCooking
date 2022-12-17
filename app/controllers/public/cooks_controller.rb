@@ -3,6 +3,7 @@ class Public::CooksController < ApplicationController
 
   def new
     @cook = Cook.new
+    #@customer = Customer.find(params[:id])
   end
 
   def index
@@ -29,8 +30,7 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save!
-      flash[:notice] = "投稿に成功しました。"
-      redirect_to cooks_path
+      redirect_to cooks_path, notice: "投稿に成功しました！"
     else
       render :new
     end
@@ -39,7 +39,7 @@ class Public::CooksController < ApplicationController
   def update
     @cook = Cook.find(params[:id])
     if @cook.update(cook_params)
-      redirect_to cook_path
+      redirect_to cook_path, notice: "変更を保存しました！！"
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class Public::CooksController < ApplicationController
   def destroy
     @cook = Cook.find(params[:id])
     @cook.destroy
-    redirect_to cooks_path
+    redirect_to cooks_path, notice: "投稿を削除しました！"
   end
 
   private

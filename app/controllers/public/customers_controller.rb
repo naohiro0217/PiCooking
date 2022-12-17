@@ -5,7 +5,6 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @cooks = @customer.cooks.order(created_at: :DESC)
-    @cook = Cook.new
   end
 
   def edit
@@ -15,6 +14,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
+      flash[:notice] = "変更を保存しました！"
       redirect_to customer_path(@customer.id)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to root_path, notice: "アカウントの退会を実行しました!"
   end
 
   def index
