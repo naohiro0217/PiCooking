@@ -1,4 +1,6 @@
 <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
 
       <a class="navbar-brand" href="/"><span>PiCooking</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,9 +10,9 @@
         <% if admin_signed_in? %>
         <%# 管理者でログイン %>
 
-            <li class="my-auto pr-5 mr-5 text-light">
+            <div class="my-auto pr-5 mr-5 text-light">
               現在、管理者アカウントでログインしています。
-            </li>
+            </div>
             <li>
               <%= link_to admin_cooks_path, class: 'nav-link text-light' do %>
                 投稿一覧
@@ -29,9 +31,9 @@
 
         <%# 会員でログイン %>
         <% elsif customer_signed_in? %>
-          <li class="my-auto pr-5 mr-5 text-light">
+          <div class="my-auto pr-5 mr-5 text-light">
             ようこそ、<%= current_customer.nickname %>さん！
-          </li>
+          </div>
           <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>
               マイページ
@@ -58,9 +60,8 @@
                ログアウト
             <% end %>
           </li>
-
-        <%# ログイン前の状態 %>
         <% else %>
+          <%# ログイン前の状態 %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
                Home
@@ -82,5 +83,7 @@
             <% end %>
           </li>
         <% end %>
+    </div>
+  </nav>
 
 </header>
