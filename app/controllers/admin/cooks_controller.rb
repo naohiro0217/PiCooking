@@ -14,7 +14,7 @@ class Admin::CooksController < ApplicationController
   def destroy
     @cook = Cook.find(params[:id])
     @cook.destroy
-    redirect_to admin_cooks_path
+    redirect_to admin_cooks_path, notice: "投稿を削除しました！"
   end
 
   private

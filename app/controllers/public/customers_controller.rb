@@ -14,10 +14,10 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      flash[:notice] = "変更を保存しました！"
+      flash[:notice] = "登録内容の変更を保存しました！"
       redirect_to customer_path(@customer.id)
     else
-      render 'edit'
+      render 'edit', notice: "登録内容の変更に失敗しました"
     end
   end
 

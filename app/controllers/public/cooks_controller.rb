@@ -32,16 +32,16 @@ class Public::CooksController < ApplicationController
     if @cook.save!
       redirect_to cooks_path, notice: "投稿に成功しました！"
     else
-      render :new
+      render :new, notice: "投稿に失敗しました！"
     end
   end
 
   def update
     @cook = Cook.find(params[:id])
     if @cook.update(cook_params)
-      redirect_to cook_path, notice: "変更を保存しました！！"
+      redirect_to cook_path, notice: "投稿内容の変更を保存しました！！"
     else
-      render :edit
+      render :edit, notice: "投稿内容の変更を失敗しました！"
     end
   end
 
