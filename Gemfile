@@ -63,5 +63,8 @@ gem 'kaminari','~> 1.2.1'
 # rails c用
 gem 'pry-rails'
 
+# active_strage
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+
+gem "enum_help"
