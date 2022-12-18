@@ -8,10 +8,11 @@ class Cook < ApplicationRecord
   validates :title, presence:true
   # 感想は２００字以内
   validates :body, presence:true, length:{maximum:200}
-
+  
+  # レビューの星の数の検索
   scope :search_by_rate, ->(rate) { where(rate: rate.to_i) }
 
-
+  # 投稿内容の検索
   def self.search_for(content, method)
     if method == 'perfect'
       Cook.where(title: content)
@@ -24,6 +25,7 @@ class Cook < ApplicationRecord
     end
   end
 
+  # タグ検索
   def self.search_by_name(content, method)
     if method == 'perfect'
       Cook.where(name: content)
@@ -35,10 +37,6 @@ class Cook < ApplicationRecord
       Cook.where('name LIKE ?', '%' + content + '%')
     end
   end
-
-
-
-
 
   has_one_attached :image
 
