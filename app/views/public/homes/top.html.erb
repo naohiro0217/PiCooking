@@ -1,14 +1,15 @@
 <div class = 'container' >
   <div class = 'row' >
+    <div class = "mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 mt-sm-5 text-center">
     <%#div class="card" style="background-size:cover;"%>
 
       <%#img class="card-img " src="/assets/top.jpg" alt=""%>
       <%#div class="card-img-overlay"%>
-        <h5>ようこそ、PiCookingへ！</h5><br>
-        <p><%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %></p><br>
-        <p><%= link_to "ログイン画面へ", new_customer_session_path %><p>
+        <h5>ようこそ、PiCookingへ！</h5>
+        <p><%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post, class: "btn btn-primary px-sm-2" %></p>
+        <p><%= link_to "ログイン画面へ", new_customer_session_path, class: "btn btn-success px-sm-5" %></p>
       <%#/div%>
-    <%#/div%>
+    </div>
   </div>
 </div>
 
