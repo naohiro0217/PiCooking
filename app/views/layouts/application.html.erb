@@ -11,8 +11,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class = 'pt-5'>
-    <div class= 'mt-2 pt-5'>
+  <body class = 'pt-sm-5'>
+    <div class = 'mt-sm-2 pt-sm-5'>
       <%= render 'layouts/header' %>
     </div>
     <main class: 'pt-sm-5 mt-sm-5'>
@@ -29,5 +29,8 @@
       <% end %>
       <%= yield %>
     </main>
+    <div class = 'fixed-bottom mt-sm-2 pt-sm-5 text-center' >
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
