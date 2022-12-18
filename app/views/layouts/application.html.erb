@@ -11,15 +11,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render 'layouts/header' %>
-    <main>
+  <body class = 'pt-5'>
+    <div class= 'mt-2 pt-5'>
+      <%= render 'layouts/header' %>
+    </div>
+    <main class: 'pt-sm-5 mt-sm-5'>
       <p id="notice"><%= notice %></p>
       <%# ログイン中にのみ検索フォームを表示 %>
       <% if admin_signed_in? || customer_signed_in? %>
         <div class="container">
           <div class="row justify-content-start mb-2">
-            <div class="mr-3"><%= render 'searches/form' %></div>
+            <div class="mr-5"><%= render 'searches/form' %></div>
             <div class="mr-3"><%= render "searches/tag_form" %></div>
             <div class="mr-3"><%= render "searches/rate_search" %></div>
           </div>

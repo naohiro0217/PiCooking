@@ -1,19 +1,17 @@
+<div class = 'container' >
+  <div class = 'row' >
+    <%#div class="card" style="background-size:cover;"%>
 
-
-<div class="card" style="background-size: '200x150'>
-
-  <img class="card-img " src="/assets/top.jpeg" alt="">
-  <div class="card-img-overlay">
-    <h5 class: 'text-light'>
-      ようこそ、PiCookingへ！
-    </h5>
+      <%#img class="card-img " src="/assets/top.jpg" alt=""%>
+      <%#div class="card-img-overlay"%>
+        <h5>ようこそ、PiCookingへ！</h5><br>
+        <p><%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %></p><br>
+        <p><%= link_to "ログイン画面へ", new_customer_session_path %><p>
+      <%#/div%>
+    <%#/div%>
   </div>
 </div>
 
-<div>
-  <%= link_to "ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %>
-</div>
 
-<div>
-  <%= link_to "ログイン画面へ", new_customer_session_path %>
-</div>
+
+
