@@ -27,7 +27,7 @@
             <%= f.hidden_field :rate, id: :review_star, class:"form-control" %>
           </div>
 
-          <div id="post_raty"></div>
+          <div id="post_raty", class = 'ml-sm-4'></div>
           <script>
             var raty_elem = document.querySelector('#post_raty');
             raty_elem.innerHTML = ""
@@ -41,7 +41,7 @@
           </script>
         <% end %>
         <div class = 'd-flex justify-content-center mb-sm-3'>
-          <%= f.submit '投　稿', class: 'btn btn-primary mt-sm-4 px-sm-5 col-5' %>
+          <%= f.submit '投　稿', class: 'btn btn-primary mt-sm-4 px-sm-5 col-sm-5' %>
         </div>
       <% end %>
     </div>
