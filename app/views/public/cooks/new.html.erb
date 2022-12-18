@@ -1,48 +1,49 @@
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = "mx-auto col-sm-8 mt-sm-3 bg-dark">
+      <h1 class = 'mt-sm-2'><span class = 'text-light'>新規投稿を作成</span></h1>
 
-<h1>新規投稿を作成</h1>
+      <%= form_with model: @cook do |f| %>
+        <div class = "form-group-lg">
+          <%= f.label :画像, class: 'text-light' %><br>
+          <%= f.file_field :image, accept: "image/*", class: 'text-light' %>
+        </div>
+        <div class = "form-group-lg">
+          <%= f.label :タイトル, class: 'text-light' %><br>
+          <%= f.text_field :title, class: 'form-control cook_title text-light' %>
+        </div>
+        <div class = "form-group-lg">
+          <%= f.label :感想, class: 'text-light' %><br>
+          <%= f.text_area :body, class: 'form-control cook_body pb-sm-5'  %>
+        </div>
+        <div class = "form-group-lg" %>
+          <%= f.label :タグ, class: 'text-light' %><br>
+          <%= f.text_field :name, class: 'form-control cook_name' %>
+        </div>
 
-  <%= form_with model: @cook do |f| %>
-    <div class = "form-group">
-      <%= f.label :画像 %><br>
-      <%= f.file_field :image, accept: "image/*" %>
+        <% if @cook.id === nil %>
+          <div class="form-group-lg" id="star">
+            <%= f.label :評価, class: 'text-light' %>
+            <%= f.hidden_field :rate, id: :review_star, class:"form-control" %>
+          </div>
+
+          <div id="post_raty"></div>
+          <script>
+            var raty_elem = document.querySelector('#post_raty');
+            raty_elem.innerHTML = ""
+            var option = {
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                scoreName: 'cook[rate]',
+              };
+            raty(raty_elem,option);
+          </script>
+        <% end %>
+        <div class = 'd-flex justify-content-center mb-sm-3'>
+          <%= f.submit '投稿', class: 'btn btn-primary mt-sm-4 px-sm-5' %>
+        </div>
+      <% end %>
     </div>
-    <div class = "form-group">
-      <%= f.label :タイトル %><br>
-      <%= f.text_field :title, class: 'form-control cook_title' %>
-    </div>
-    <div class = "form-group">
-      <%= f.label :感想 %><br>
-      <%= f.text_area :body, class: 'form-control cook_body'%>
-    </div>
-    <div class = "form-group" %>
-      <%= f.label :タグ %><br>
-      <%= f.text_field :name, class: 'form-control cook_name' %>
-    </div>
-
-    <% if @cook.id === nil %>
-      <div class="form-group" id="star">
-        <%= f.label :評価 %>
-        <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
-      </div>
-
-      <div id="post_raty"></div>
-      <script>
-        var raty_elem = document.querySelector('#post_raty');
-        raty_elem.innerHTML = ""
-        var option = {
-            starOn: "<%= asset_path('star-on.png') %>",
-            starOff: "<%= asset_path('star-off.png') %>",
-            starHalf: "<%= asset_path('star-half.png') %>",
-            scoreName: 'cook[rate]',
-          };
-        raty(raty_elem,option);
-      </script>
-    <% end %>
-    <%= f.submit '投稿' %>
-  <% end %>
-
-<% if customer.name != "guestuser" %>
-  <div class='row'>
-    <%= link_to '',cooks_path, method: :post, class: "btn btn-outline-secondary btn-block fas fa-customer-cog cooks %>
   </div>
-<% end %>
+</div>

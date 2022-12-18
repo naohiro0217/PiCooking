@@ -12,11 +12,11 @@
   </head>
 
   <body class = 'pt-sm-5'>
-    <div class = 'mt-sm-4 pt-sm-4'>
+    <div>
       <%= render 'layouts/header' %>
     </div>
-    <main class: 'pt-sm-5 mt-sm-5'>
-      <div class="text-center  alert-success"><%= flash[:notice] %></div>
+    <main>
+      <div class="text-center  alert-success mt-sm-3 pt-sm-4"><%= flash[:notice] %></div>
       <%# ログイン中にのみ検索フォームを表示 %>
       <% if admin_signed_in? || customer_signed_in? %>
         <div class="container">
