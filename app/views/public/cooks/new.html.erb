@@ -1,7 +1,7 @@
 <div class = 'container'>
   <div class = 'row'>
-    <div class = "mx-auto col-sm-8 mt-sm-3 bg-dark">
-      <h1 class = 'mt-sm-2'><span class = 'text-light'>新規投稿を作成</span></h1>
+    <div class = "mx-auto col-8 mt-3 bg-dark">
+      <h1 class = 'mt-2'><span class = 'text-light'>新規投稿を作成</span></h1>
 
       <%= form_with model: @cook do |f| %>
         <div class = "form-group-lg">
@@ -14,7 +14,7 @@
         </div>
         <div class = "form-group-lg">
           <%= f.label :感想, class: 'text-light' %><br>
-          <%= f.text_area :body, class: 'form-control cook_body pb-sm-5'  %>
+          <%= f.text_area :body, class: 'form-control cook_body pb-5'  %>
         </div>
         <div class = "form-group-lg" %>
           <%= f.label :タグ, class: 'text-light' %><br>
@@ -27,7 +27,7 @@
             <%= f.hidden_field :rate, id: :review_star, class:"form-control" %>
           </div>
 
-          <div id="post_raty", class = 'ml-sm-4'></div>
+          <div id="post_raty", class = 'ml-4'></div>
           <script>
             var raty_elem = document.querySelector('#post_raty');
             raty_elem.innerHTML = ""
@@ -40,8 +40,8 @@
             raty(raty_elem,option);
           </script>
         <% end %>
-        <div class = 'd-flex justify-content-center mb-sm-3'>
-          <%= f.submit '投　稿', class: 'btn btn-primary mt-sm-4 px-sm-5 col-sm-5' %>
+        <div class = 'd-flex justify-content-center mb-3'>
+          <%= f.submit '投　稿', class: 'btn btn-primary mt-4 px-5 col-5' %>
         </div>
       <% end %>
     </div>
