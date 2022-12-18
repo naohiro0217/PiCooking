@@ -1,5 +1,6 @@
 class Public::CooksController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_guest_user, only: [:new, :create, :destroy, :update]
 
   def new
     @cook = Cook.new
@@ -55,6 +56,12 @@ class Public::CooksController < ApplicationController
 
   def cook_params
     params.require(:cook).permit(:title, :image, :body, :rate, :name)
+  end
+
+  def ensure_guest_user
+    if current_customer.name == "guestuser"
+      redirect_to customer_path(current_customer) , notice: 'ゲストユーザーは投稿できません！'
+    end
   end
 
 end

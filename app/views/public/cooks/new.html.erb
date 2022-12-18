@@ -37,9 +37,12 @@
           };
         raty(raty_elem,option);
       </script>
-
     <% end %>
-
-
     <%= f.submit '投稿' %>
   <% end %>
+
+<% if customer.name != "guestuser" %>
+  <div class='row'>
+    <%= link_to '',cooks_path, method: :post, class: "btn btn-outline-secondary btn-block fas fa-customer-cog cooks %>
+  </div>
+<% end %>
