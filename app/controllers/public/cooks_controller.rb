@@ -4,11 +4,10 @@ class Public::CooksController < ApplicationController
 
   def new
     @cook = Cook.new
-    #@customer = Customer.find(params[:id])
   end
 
   def index
-    @cooks = Cook.all.order(params[:sort]).order(created_at: :DESC)
+    @cooks = Cook.order(created_at: :DESC).page(params[:page])
   end
 
   def show
