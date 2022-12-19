@@ -3,5 +3,5 @@ class CookComment < ApplicationRecord
   belongs_to :customer
   belongs_to :cook
 
-  # validates :comment, presence: true
+  validates :comment, length:{maximum:20}
 end

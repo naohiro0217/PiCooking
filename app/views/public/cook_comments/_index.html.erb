@@ -14,7 +14,7 @@
           </td>
           <td>
             <% if cook_comment.customer == current_customer %>
-              <%= link_to "コメントを削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete, class: 'btn btn-danger' %>
+              <%= link_to "削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete, class: 'btn btn-danger' %>
             <% end %>
           </td>
         </tr>

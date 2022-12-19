@@ -15,5 +15,6 @@ class SearchesController < ApplicationController
     elsif @model == 'rate'
       @records = Cook.search_by_rate(@content)
     end
+    @records = Kaminari.paginate_array(@records).page(params[:page])
   end
 end
