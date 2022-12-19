@@ -1,50 +1,59 @@
+<div class = 'container'>
+    <h3>投稿情報</h3>
+  <div class = 'row'>
+    <div>
+      <% if @cook.customer == current_customer %>
+        <%= link_to "編集する", edit_cook_path, class: 'btn btn-success' %><br>
+        <%= link_to "　削除　", cook_path(@cook), method: :delete, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+    <table class = 'col-5 table table-bordered border-dark'>
+      <tr>
+        <td><%= image_tag @customer.get_profile_image(70,70) %></td>
+        <td><%= link_to @customer.nickname, "/customers/#{@customer.id}" %></td>
+      </tr>
+      <tr>
+        <td>タイトル</td>
+        <td><%= @cook.title %></td>
+      </tr>
 
-<h5>投稿情報</h5>
+      <tr>
+        <td>感想</td>
+        <td><%= @cook.body %></td>
+      </tr>
 
-<table>
-  <tr>
-    <%= image_tag @customer.get_profile_image(100,100) %>
-    <%= link_to @customer.nickname, "/customers/#{@customer.id}" %>
-  </tr>
+      <tr>
+        <td>タグ</td>
+        <td><%= @cook.name %></td>
+      </tr>
 
-  <tr>
-    <%= @cook.title %>
-  </tr>
+      <tr>
+        <td>コメント数</td>
+        <td><%= @cook.cook_comments.count %></td>
+      </tr>
 
-  <tr>
-    <%= @cook.body %>
-  </tr>
+      <tr>
+        <td>評価</td>
+        <td><%= render 'public/cooks/rate', cook: @cook %></td>
+      </tr>
 
-  <tr>
-    <%# @cook.tags.each do |tag| %>
-      <%#= tag.name %>
-    <%# end %>
-    <%= @cook.name %>
-  </tr>
 
-  <tr>コメント数: <%= @cook.cook_comments.count %></tr>
+      <tr>
+        <td>投稿日</td>
+        <td><%= @cook.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
 
-  <tr>
-    <%= render 'public/cooks/rate', cook: @cook %>
-  </tr>
-
-  <tr>
+    </table>
     <%= image_tag @cook.get_image(300, 300) %>
-  </tr>
 
-  <tr>
-    <p>投稿日:<%= @cook.created_at.strftime('%Y/%m/%d') %></p>
-  </tr>
+  </div>
 
-  <tr>
-    <% if @cook.customer == current_customer %>
-      <%= link_to "編集する", edit_cook_path %>
-      |<%= link_to "削除", cook_path(@cook), method: :delete %>
-    <% end %>
-  </tr>
+  <div class = 'row'>
+    <div id='comments_area'><%= render "public/cook_comments/index", cook: @cook, cook_coment: @cook_coment %></div>
+  </div>
+  <div>
+    <div id='comment_area'><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>
+  </div>
+</div>
 
-</table>
 
-<div id='comments_area'><%= render "public/cook_comments/index", cook: @cook, cook_coment: @cook_coment %></div>
-
-<div id='comment_area'><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>

@@ -1,5 +1,5 @@
 
 <%= form_with(model:[cook, cook_comment]) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここにお書きください", class: "w-100", id: "comment_text_area" %>
-  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここにお書きになられたら下の「送信する」のボタンをお押してください。", class: "w-100", id: "comment_text_area" %>
+  <%= f.submit "送信する", class: "btn btn-success d-flex justify-content-center" %>
 <% end %>
