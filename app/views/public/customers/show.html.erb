@@ -28,6 +28,9 @@
 
 
 <h1><%= @customer.nickname %>さんの投稿一覧</h1>
+<div class="d-flex justify-content-center">
+  <span class = 'bg-light'><%= paginate @cooks %></span>
+</div>
 <table class = "table table-hover table-inverse" >
     <thead>
         <tr>

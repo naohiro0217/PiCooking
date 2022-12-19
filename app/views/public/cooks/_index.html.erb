@@ -1,19 +1,19 @@
-<div class="d-flex justify-content-center">
-  <span class = 'bg-light'><%= paginate cooks %></span>
+<div class="mt-5 offset-3">
+  <%= paginate cooks %>
 </div>
 
-<table class="table align-middle text-light" >
+<table class="table align-middle">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th></th>
-      <th style="width:10%">ユーザーネーム</th>
+      <th style="width:10%"></th>
       <th style="width:10%">タイトル</th>
       <th style="width:20%">感想</th>
       <th style="width:5%">タグ</th>
-      <th style="width:12%">評価</th>
+      <th style="width:15%">評価</th>
       <th style="width:10%"></th>
       <th></th>
-      <th style="width:10%"></th>
+      <th style="width:12%"></th>
     </tr>
 
   </thead>
@@ -37,7 +37,7 @@
         <td><%= cook.body %></td>
         <td><%= cook.name %></td>
         <td><%= render "public/cooks/rate", cook: cook %></td>
-        <td>コメント数: <%= cook.cook_comments.count %></td>
+        <td>コメント: <%= cook.cook_comments.count %></td>
         <td><%= image_tag cook.get_image(100, 100) %></td>
         <td><%= link_to '詳細画面へ', cook_path(cook), class: "cook_#{cook.id} btn btn-success" %></td>
       </tr>
