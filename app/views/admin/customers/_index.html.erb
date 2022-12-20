@@ -1,28 +1,37 @@
-
-<table>
-  <thead>
-    <th></th>
-    <th>会員ID</th>
-    <th>ユーザー名</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= image_tag customer.get_profile_image(100, 100) %></td>
-        <td><%= customer.id %></td>
-        <td><%= link_to  admin_customer_path(customer.id) do %>
-              <%= customer.nickname %>
-            <% end %>
-        </td>
-        <td><%= customer.email %></td>
-          <% if customer.is_deleted? %>
-            <td>退会</td>
-          <% else %>
-            <td>有効</td>
-          <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = 'container'>
+  <div class = 'row'>
+    <div class="mt-5 offset-3">
+      <%= paginate customers %>
+    </div>
+    <table  class = 'table table-hover table-inverse'>
+      <thead>
+        <tr class = 'table-secondary'>
+          <th></th>
+          <th>会員ID</th>
+          <th>ユーザー名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% customers.each do |customer| %>
+          <tr>
+            <td>
+              <%= link_to  admin_customer_path(customer.id) do %>
+                <%= image_tag customer.get_profile_image(70, 70) %>
+              <% end %>
+            </td>
+            <td><%= customer.id %></td>
+            <td><%= customer.nickname %></td>
+            <td><%= customer.email %></td>
+              <% if customer.is_deleted? %>
+                <td>退会</td>
+              <% else %>
+                <td>有効</td>
+              <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
