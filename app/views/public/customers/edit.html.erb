@@ -1,28 +1,32 @@
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = "mx-auto col-8 mt-3 border border-dark">
+      <h1>プロフィール編集</h1>
 
-<h4>プロフィール編集</h4>
+      <%= form_with model: @customer do |f| %>
 
-<%= form_with model: @customer do |f| %>
+        <div class = "form-group mb-3" >
+          <%= f.label :ユーザーネーム %>
+          <%= f.text_field :nickname, autofocus: true, id:"inputNickname", placeholder: "nickname", class: 'form-control' %>
+        </div>
 
-  <div class = "form-group" >
-    <h6>ユーザーネーム</h6>
-    <%= f.text_field :nickname, autofocus: true, id:"inputNickname", placeholder: "nickname" %>
+        <div class = "form-group">
+          <%= f.label :プロフィール画像 %><br>
+          <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+        </div>
+
+        <div class = "form-group">
+          <%= f.label :プロフィール %>
+          <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "introduction", class: 'form-control' %>
+        </div>
+
+        <div class = 'd-flex justify-content-center my-3'>
+          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        </div>
+
+        <h5>退会を希望の方は<%= link_to "こちら", quit_path %>をクリックしてください。</h5>
+
+      <% end %>
+    </div>
   </div>
-
-  <div class = "form-group" >
-    <h6>プロフィール画像</h6>
-    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-  </div>
-
-  <div>
-    <h6>プロフィール</h6>
-    <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "introduction" %>
-  </div>
-
-  <div>
-    <%= f.submit "変更を保存" %>
-  </div>
-  <div>
-    <%= link_to "退会する", quit_path %>
-  </div>
-
-<% end %>
+</div>
