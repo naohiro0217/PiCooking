@@ -1,42 +1,52 @@
 
-<h4>情報を編集</h4>
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = "mx-auto col-8 mt-3 border border-dark">
+      <h1 class = 'mt-2'>投稿情報を編集</span></h1>
 
-<%= form_with model: @cook do |f| %>
+      <%= form_with model: @cook do |f| %>
+        <div class = "form-group-lg">
+          <%= f.label :画像 %><br>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div class = "form-group-lg">
+          <%= f.label :タイトル %><br>
+          <%= f.text_field :title, class: 'form-control cook_title' %>
+        </div>
+        <div class = "form-group-lg">
+          <%= f.label :感想 %><br>
+          <%= f.text_area :body, class: 'form-control cook_body pb-5' %>
+        </div>
+        <div class = "form-group-lg" %>
+          <%= f.label :タグ %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-  <h6>タイトル</h6>
-    <%= f.text_field :title %>
+        <h6>評価</h6>
+          <%# レビュー機能 %>
+          <%= f.hidden_field :rate, id: :review_star %>
+          <div id="post_raty"></div>
+          <script>
+            var raty_elem = document.querySelector('#post_raty');
+            raty_elem.innerHTML = ""
+            var option = {
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                scoreName: 'cook[rate]',
+                score: <%= @cook.rate %>
+              };
+            raty(raty_elem,option);
+          </script>
 
-  <h6>感想</h6>
-    <%= f.text_area :body %>
-
-  <h4>画像</h4>
-    <%= f.file_field :image, accept: "image/*" %>
-
-  <h4>タグ</h4>
-    <%= f.text_field :name %>
-
-  <h6>評価</h6>
-  <%# レビュー機能 %>
-  <%= f.hidden_field :rate, id: :review_star %>
-
-  <div id="post_raty"></div>
-  <script>
-
-    var raty_elem = document.querySelector('#post_raty');
-    raty_elem.innerHTML = ""
-    var option = {
-        starOn: "<%= asset_path('star-on.png') %>",
-        starOff: "<%= asset_path('star-off.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
-        scoreName: 'cook[rate]',
-        score: <%= @cook.rate %>
-      };
-    raty(raty_elem,option);
-
-  </script>
+        <div class = 'd-flex justify-content-center mb-3'>
+          <%= f.submit '変更を保存', class: 'btn btn-primary mt-4 px-5 col-5' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-  <%= f.submit '変更を保存' %>
 
-<% end %>
 
