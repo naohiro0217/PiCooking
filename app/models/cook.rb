@@ -5,9 +5,11 @@ class Cook < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
 
-  validates :title, presence:true
+  validates :title, presence:true, length:{maximum:10}
   # 感想は２００字以内
-  validates :body, presence:true, length:{maximum:200}
+  validates :body, presence:true, length:{maximum:50}
+  # タグ名
+  validates :name, presence:true, length:{maximum:10}
 
   # レビューの星の数の検索
   scope :search_by_rate, ->(rate) { where(rate: rate.to_i) }

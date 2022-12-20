@@ -8,7 +8,8 @@ class Customer < ApplicationRecord
   has_many :cook_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 10 }
+  validates :name, presence: true
+  validates :nickname, presence: true, length: { maximum: 10 }
   # プロフィールは５０字以内
   validates :introduction, length: { maximum: 50 }
   validates :email, presence: true
