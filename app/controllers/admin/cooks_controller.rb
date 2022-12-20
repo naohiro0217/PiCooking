@@ -2,7 +2,7 @@ class Admin::CooksController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @cooks = Cook.all.order(created_at: :DESC)
+    @cooks = Cook.order(created_at: :DESC).page(params[:page])
   end
 
   def show
