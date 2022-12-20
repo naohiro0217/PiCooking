@@ -1,7 +1,8 @@
 <div class = 'container'>
   <div class = 'row'>
     <div class = "mx-auto col-8 mt-3">
-      <h1 class = 'mt-2'>新規投稿を作成</span></h1>
+      <h1 class = 'mt-2'>新規投稿を作成</h1>
+      <%= render 'layouts/errors', obj: @cook %>
 
       <%= form_with model: @cook do |f| %>
         <div class = "form-group-lg">

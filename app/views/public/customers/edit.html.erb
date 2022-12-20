@@ -4,10 +4,11 @@
       <h1>プロフィール編集</h1>
 
       <%= form_with model: @customer do |f| %>
+      <%= render 'layouts/errors', obj: @customer %>
 
         <div class = "form-group mb-3" >
           <%= f.label :ユーザーネーム %>
-          <%= f.text_field :nickname, autofocus: true, id:"inputNickname", placeholder: "nickname", class: 'form-control' %>
+          <%= f.text_field :nickname, autofocus: true, id:"inputNickname", class: 'form-control' %>
         </div>
 
         <div class = "form-group">
@@ -17,7 +18,7 @@
 
         <div class = "form-group">
           <%= f.label :プロフィール %>
-          <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "introduction", class: 'form-control' %>
+          <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", class: 'form-control' %>
         </div>
 
         <div class = 'd-flex justify-content-center my-3'>
