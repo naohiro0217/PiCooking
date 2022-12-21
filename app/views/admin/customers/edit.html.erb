@@ -1,26 +1,35 @@
-<h4>編集画面</h4>
-<h5><%= @customer.nickname %>さん</h5>
-<%= form_with model: [:admin, @customer] do |f| %>
-  <div>
-    <span>ユーザーネーム</span>
-    <span><%= @customer.nickname %></span>
-  </div>
-  <div>
-    <span>プロフィール</span>
-    <span><%= @customer.introduction %></span>
-  </div>
-  
-  <%# 会員ステータスをラジオボタンで切り替え %>
-  <div>
-    <span>ステータス</span>
-    <div>
-      <%= f.radio_button :is_deleted, :false %>
-      <%= f.label :is_deleted, "有効" %>
-      <%= f.radio_button :is_deleted,  :true %>
-      <%= f.label :is_deleted, "退会" %>
+<div class = 'container text-nowrap'>
+  <div class = 'row'>
+    <div class = 'mt-5 col-8 mx-auto '>
+      <h3><%= @customer.nickname %>さんの編集画面</h3>
+      <%= form_with model: [:admin, @customer] do |f| %>
+        <table class = 'table'>
+          <tr>
+            <td>ユーザーネーム</td>
+            <td><%= @customer.nickname %></td>
+          </tr>
+          <tr class = 'py-5'>
+            <td>プロフィール</td>
+            <td><%= @customer.introduction %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td>
+              <div>
+                <%= f.radio_button :is_deleted, :false %>
+                <%= f.label :is_deleted, "有効" %>
+                <%= f.radio_button :is_deleted,  :true %>
+                <%= f.label :is_deleted, "退会" %>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+        <div class = 'd-flex justify-content-center my-3'>
+          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div>
-    <%= f.submit "変更を保存" %>
-  </div>
-<% end %>
+</div>
+
