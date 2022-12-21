@@ -1,47 +1,56 @@
+<div class = 'container text-nowrap'>
+  <h3 class = 'mt-3'>投稿情報<%= link_to "削除", admin_cook_path(@cook), method: :delete, class: 'btn btn-danger btn-sm px-3 ml-3' %></h3>
+  <div class = 'row col-12'>
+    <table class = 'col-5 table table-bordered border-dark'>
+        <tr>
+          <td><%= image_tag @customer.get_profile_image(70, 70) %></td>
+          <td><%= @customer.nickname %></td>
+        </tr>
+
+        <tr>
+          <td>タイトル</td>
+          <td><%= @cook.title %></td>
+        </tr>
+
+        <tr>
+          <td>感想</td>
+          <td><%= @cook.body %></td>
+        </tr>
+        <tr>
+          <td>タグ</td>
+          <td><%= @cook.name %></td>
+        </tr>
+        <tr>
+          <td>コメント数</td>
+          <td><%= @cook.cook_comments.count %></td>
+        </tr>
+        <tr>
+          <%# レビュー機能 %>
+          <td>評価</td>
+          <td><%= render 'public/cooks/rate', cook: @cook %></td>
+        </tr>
+        <tr>
+          <td>投稿日</td>
+          <td><%= @cook.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+      </table>
+
+      <div>
+        <%= image_tag @cook.get_image(300, 300) %>
+      </div>
+    </div>
+    <div class = 'row col-10'>
+      <%# コメント一覧 %>
+      <%= render 'admin/cook_comments/index', cook: @cook %>
+    </div>
+  </div>
+</div>
 
 
 
 
-<table>
 
-    <tr>
-      <%= image_tag @customer.get_profile_image(100,100) %>
-      <%= link_to @customer.nickname, admin_customer_path(@customer.id) %>
-    </tr>
 
-    <tr>
-      <%= @cook.title %>
-    </tr>
 
-    <tr>
-      <%= @cook.body %>
-    </tr>
-    <tr>
-      <%= @cook.name %>
-    </tr>
 
-    <tr>
-      <%= image_tag @cook.get_image(300, 300) %>
-    </tr>
-
-    <tr>
-      <p>投稿日:<%= @cook.created_at.strftime('%Y/%m/%d') %></p>
-    </tr>
-
-    <tr>
-      <p>コメント数:<%= @cook.cook_comments.count %></p>
-    </tr>
-    <%# レビュー機能 %>
-    <tr>
-      <%= render 'public/cooks/rate', cook: @cook %>
-    </tr>
-
-    <tr>
-      <%= link_to "削除", admin_cook_path(@cook), method: :delete %>
-    </tr>
-
-</table>
-
-<%# コメント一覧 %>
-<%= render 'admin/cook_comments/index', cook: @cook %>
 
