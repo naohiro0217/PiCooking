@@ -1,6 +1,6 @@
-<div class = 'container text-nowrap'>
+<div class = 'container'>
     <div class = 'mt-5'>
-      <h3><%= @customer.nickname %>さんの編集画面</h3>
+      <h3 class = 'text-nowrap'><%= @customer.nickname %>さんの編集画面</h3>
       <%= form_with model: [:admin, @customer] do |f| %>
         <table class = 'table table-hover table-inverse'>
           <tr>

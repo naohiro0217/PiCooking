@@ -14,7 +14,7 @@ class CreateCooks < ActiveRecord::Migration[6.1]
       t.float :rate, null: false
 
       # タグ名
-      t.string :name
+      t.string :tag, null: false
 
       t.timestamps
     end

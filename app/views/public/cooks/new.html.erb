@@ -1,7 +1,7 @@
 <div class = 'container'>
   <div class = 'row'>
     <div class = "mx-auto col-8 mt-3">
-      <h1 class = 'mt-2'>新規投稿を作成</h1>
+      <h3 class = 'mt-2 text-nowrap'>新規投稿</h3>
       <%= render 'layouts/errors', obj: @cook %>
 
       <%= form_with model: @cook do |f| %>
@@ -19,7 +19,7 @@
         </div>
         <div class = "form-group-lg" %>
           <%= f.label :タグ（10字以内） %><br>
-          <%= f.text_field :name, class: 'form-control cook_name' %>
+          <%= f.text_field :tag, class: 'form-control cook_name' %>
         </div>
 
         <% if @cook.id === nil %>
@@ -41,8 +41,8 @@
             raty(raty_elem,option);
           </script>
         <% end %>
-        <div class = 'd-flex justify-content-center mb-3'>
-          <%= f.submit '投　稿', class: 'btn btn-primary mt-4 px-5 col-5' %>
+        <div class = 'd-flex justify-content-center mb-3 nowrap'>
+          <%= f.submit '投　稿', class: 'btn btn-primary mt-4 px-2 col-5' %>
         </div>
       <% end %>
     </div>

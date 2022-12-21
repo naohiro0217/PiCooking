@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
     elsif @model == 'cook'
       @records = Cook.search_for(@content, @method)
     elsif @model == 'tag'
-      @records = Cook.search_by_name(@content, @method)
+      @records = Cook.search_by_tag(@content, @method)
     elsif @model == 'rate'
       @records = Cook.search_by_rate(@content)
     end

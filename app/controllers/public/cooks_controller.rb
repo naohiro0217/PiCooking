@@ -54,7 +54,7 @@ class Public::CooksController < ApplicationController
   private
 
   def cook_params
-    params.require(:cook).permit(:title, :image, :body, :rate, :name)
+    params.require(:cook).permit(:title, :image, :body, :rate, :tag)
   end
 
   def ensure_guest_user

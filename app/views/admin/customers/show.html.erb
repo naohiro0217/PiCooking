@@ -1,6 +1,6 @@
-<div class = 'container text-nowrap'>
+<div class = 'container'>
   <div class = 'mt-5'>
-    <h3><%= @customer.name %>さんの詳細<%= link_to "編集する", edit_admin_customer_path, class: 'btn btn-success btn-sm ml-3' %></h3>
+    <h3 class = 'text-nowrap'><%= @customer.name %>さんの詳細<%= link_to "編集する", edit_admin_customer_path, class: 'btn btn-success btn-sm ml-3' %></h3>
 
     <table class = 'table table-hover table-inverse'>
       <tr>
@@ -60,7 +60,7 @@
               <td>
                 <%= cook.body %>
               </td>
-              <td><%= cook.name %></td>
+              <td><%= cook.tag %></td>
               <td><%= render "public/cooks/rate", cook: cook %></td>
               <td><%= image_tag cook.get_image(100, 100) %></td>
               <td><%= link_to '詳細画面へ', admin_cook_path(cook), class: "cook_#{cook.id} btn btn-success" %></td>

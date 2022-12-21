@@ -50,7 +50,7 @@
               <td>
                 <%= cook.body %>
               </td>
-              <td><%= cook.name %></td>
+              <td><%= cook.tag %></td>
               <td><%= render "public/cooks/rate", cook: cook %></td>
               <td><%= image_tag cook.get_image(100, 100) %></td>
               <td><%= link_to '詳細画面へ', cook_path(cook), class: "cook_#{cook.id} btn btn-success" %></td>

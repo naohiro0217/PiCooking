@@ -37,7 +37,7 @@
             </td>
 
             <td><%= cook.body %></td>
-            <td><%= cook.name %></td>
+            <td><%= cook.tag %></td>
             <td><%= render "public/cooks/rate", cook: cook %></td>
             <td>コメント: <%= cook.cook_comments.count %></td>
             <td><%= image_tag cook.get_image(100, 100) %></td>
