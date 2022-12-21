@@ -30,13 +30,7 @@ class Cook < ApplicationRecord
   # タグ検索
   def self.search_by_tag(content, method)
     if method == 'perfect'
-      Cook.where(name: content)
-    elsif method == 'forward'
-      Cook.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
-      Cook.where('name LIKE ?', '%' + content)
-    else
-      Cook.where('name LIKE ?', '%' + content + '%')
+      Cook.where(tag: content)
     end
   end
 

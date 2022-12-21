@@ -29,7 +29,7 @@ class Public::CooksController < ApplicationController
   def create
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
-    if @cook.save!
+    if @cook.save
       redirect_to cooks_path, notice: "投稿に成功しました！"
     else
       render :new, notice: "投稿に失敗しました！"
