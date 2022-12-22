@@ -8,6 +8,9 @@ class Public::CooksController < ApplicationController
 
   def index
     @cooks = Cook.order(created_at: :DESC).page(params[:page])
+    # 失敗
+    # @customer = Customer.find(params[:id])
+    # @cooks = Cook.@customer.where(is_deleted: false).order(created_at: :DESC).page(params[:page])
   end
 
   def show

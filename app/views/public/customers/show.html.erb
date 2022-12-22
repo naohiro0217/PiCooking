@@ -36,23 +36,22 @@
           </thead>
 
           <tbody>
-          <% @cooks.each do |cook| %>
-            <tr>
-              <td>
-                <%= image_tag @customer.get_profile_image(70,70) %>
-              </td>
-              <td>
-                <%= cook.title %>
-              </td>
-              <td>
-                <%= cook.body %>
-              </td>
-              <td><%= cook.tag %></td>
-              <td><%= render "public/cooks/rate", cook: cook %></td>
-              <td><%= image_tag cook.get_image(100, 100) %></td>
-              <td><%= link_to '詳細画面へ', cook_path(cook), class: "cook_#{cook.id} btn btn-success" %></td>
-            </tr>
-          <% end %>
+            <% @cooks.each do |cook| %>
+              <tr class = 'cooks_index_tbody_tr' data-href= '/cooks/<%= cook.id %>'>
+                <td>
+                  <%= image_tag @customer.get_profile_image(70,70) %>
+                </td>
+                <td>
+                  <%= cook.title %>
+                </td>
+                <td>
+                  <%= cook.body %>
+                </td>
+                <td><%= cook.tag %></td>
+                <td><%= render "public/cooks/rate", cook: cook %></td>
+                <td><%= image_tag cook.get_image(100, 100) %></td>
+              </tr>
+            <% end %>
           </tbody>
       </table>
       <div class="d-flex justify-content-center">

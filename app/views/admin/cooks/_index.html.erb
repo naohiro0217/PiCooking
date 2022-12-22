@@ -1,83 +1,26 @@
-
-
-<!--<table class="table align-middle table-hover table-inverse">-->
-<!--  <thead>-->
-<!--    <tr class="table-secondary">-->
-<!--      <th></th>-->
-<!--      <th style="width:10%"></th>-->
-<!--      <th style="width:10%">タイトル</th>-->
-<!--      <th style="width:18%">感想</th>-->
-<!--      <th style="width:7%">タグ</th>-->
-<!--      <th style="width:15%">評価</th>-->
-<!--      <th style="width:10%"></th>-->
-<!--      <th></th>-->
-<!--      <th style="width:12%"></th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-
-<!--  <tbody>-->
-<!--    <% cooks.each do |cook| %>-->
-<!--      <tr class = 'cooks_index_table_tr' data-href='cooks/<%= cook.id %>'>-->
-<!--        <td>-->
-<!--          <%= link_to admin_customer_path(cook.customer) do %>-->
-<!--            <%= image_tag cook.customer.get_profile_image(70, 70) %>-->
-<!--          <% end %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= cook.customer.nickname %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= cook.title %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= cook.body %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--            <%= cook.tag %>-->
-<!--        </td>-->
-
-        <%# レビュー機能の部分テンプレート %>
-<!--        <td>-->
-<!--          <%= render "public/cooks/rate", cook: cook %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--           コメント数:<%= cook.cook_comments.count %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= image_tag cook.get_image(100, 100) %>-->
-<!--        </td>-->
-<!--        <td><%= link_to '詳細画面へ', admin_cook_path(cook), class: 'cook_#{cook.id} btn btn-success' %></td>-->
-<!--      </tr>-->
-<!--    <% end %>-->
-<!--  </tbody>-->
-<!--</table>-->
-<!--<div class="mt-5 offset-3">-->
-<!--  <%= paginate cooks %>-->
-<!--</div>-->
-
 <table class = 'table align-middle table-hover table-inverse'>
-  <% cooks.each do |cook| %>
-    <tr class = 'cooks_index_table_tr' data-href= 'cooks/<%= cook.id %>'>
-      <td>
-        <%= link_to admin_customer_path(cook.customer) do %>
-          <%= image_tag cook.customer.get_profile_image(70, 70) %>
-        <% end %>
-        <%= cook.customer.nickname %><br>
-        <%= cook.title %><br>
-        <%= cook.body %><br>
-        <%= cook.tag %>
-        <%= render "public/cooks/rate", cook: cook %>
-        コメント: <%= cook.cook_comments.count %>
-      </td>
-      <td><%= image_tag cook.get_image(150, 150) %></td>
+  <thead>
+    <tr class = 'table-secondary'>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% cooks.each do |cook| %>
+      <tr class = 'cooks_index_table_tr' data-href= 'cooks/<%= cook.id %>'>
+        <td>
+          <%= link_to admin_customer_path(cook.customer) do %>
+            <%= image_tag cook.customer.get_profile_image(50, 50) %>
+          <% end %>
+          <%= cook.customer.nickname %><br>
+          <%= cook.title %><br>
+          <%= cook.body %><br>
+          <%= cook.tag %>
+          <%= render "public/cooks/rate", cook: cook %>
+          コメント: <%= cook.cook_comments.count %>
+        </td>
+        <td><%= image_tag cook.get_image(150, 150) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <div class="mt-5 offset-3">
   <%= paginate cooks %>

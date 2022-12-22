@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <% customers.each do |customer| %>
-          <tr>
+          <tr class= 'customer_index_tbody_tr' data-href= '/admin/customers/<%= customer.id %>'>
             <td>
               <%= link_to  admin_customer_path(customer.id) do %>
                 <%= image_tag customer.get_profile_image(70, 70) %>

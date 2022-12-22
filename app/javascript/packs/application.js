@@ -28,3 +28,4 @@ window.raty = function(elem,opt) {
 }
 
 import "packs/cooks.js"
+import "packs/customers.js"
