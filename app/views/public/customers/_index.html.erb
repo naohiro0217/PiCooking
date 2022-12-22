@@ -1,26 +1,28 @@
-<table class = 'table table-hover table-inverse'>
-  <thead>
-    <tr class = 'table-secondary'>
-      <th></th>
-      <th>ユーザーネーム</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% customers.each do |customer| %>
-      <tr class= 'customer_index_tbody_tr' data-href= '/customers/<%= customer.id %>'>
-        <td>
-          <%= link_to customer_path(customer.id) do %>
-            <%= image_tag customer.get_profile_image(70, 70) %>
-          <% end %>
-        </td>
-        <td>
-          <%= customer.nickname %>
-        </td>
+<div class = 'container'>
+  <table class = 'table table-hover table-inverse'>
+    <thead>
+      <tr class = 'table-secondary'>
+        <th></th>
+        <th>ユーザーネーム</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="mt-5 offset-3">
-  <%= paginate customers %>
+    </thead>
+
+    <tbody>
+      <% customers.each do |customer| %>
+        <tr class= 'customer_index_tbody_tr' data-href= '/customers/<%= customer.id %>'>
+          <td>
+            <%= link_to customer_path(customer.id) do %>
+              <%= image_tag customer.get_profile_image(70, 70) %>
+            <% end %>
+          </td>
+          <td>
+            <%= customer.nickname %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="mt-5 offset-3">
+    <%= paginate customers %>
+  </div>
 </div>
