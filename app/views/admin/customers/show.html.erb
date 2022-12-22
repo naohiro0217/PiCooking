@@ -65,10 +65,11 @@
               <td><%= image_tag cook.get_image(100, 100) %></td>
               <td><%= link_to '詳細画面へ', admin_cook_path(cook), class: "cook_#{cook.id} btn btn-success" %></td>
             </tr>
-
           <% end %>
-
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      <%= paginate @cooks %>
+    </div>
   </div>
 </div>
