@@ -50,7 +50,7 @@
 
         <tbody>
           <% @cooks.each do |cook| %>
-            <tr class = 'cooks_index_tbody_tr' data-href= '/cooks/<%= cook.id %>'>
+            <tr class = 'cooks_index_tbody_tr' data-href= '/admin/cooks/<%= cook.id %>'>
               <td>
                 <%= image_tag @customer.get_profile_image(70, 70) %>
               </td>

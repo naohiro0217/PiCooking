@@ -7,12 +7,17 @@ class Public::CookCommentsController < ApplicationController
     comment = current_customer.cook_comments.new(cook_comment_params)
     comment.cook_id = cook.id
     comment.save
-    redirect_to cook_path(cook), notice: "コメントに成功しました！"
+    @cook = Cook.find(params[:cook_id])
+    @cook_comment = CookComment.new
+    #redirect_to cook_path(cook), notice: "コメントに成功しました！"
   end
 
   def destroy
-    CookComment.find(params[:id]).destroy
-    redirect_to cook_path(params[:cook_id]), notice: "コメントを削除しました！"
+    @cook = Cook.find(params[:cook_id])
+    @cook_comment = CookComment.find_by(id: params[:id], cook_id: params[:cook_id])
+    @cook_comment.destroy
+    @cook_comment = CookComment.new
+    #redirect_to cook_path(params[:cook_id]), notice: "コメントを削除しました！"
   end
 
   private

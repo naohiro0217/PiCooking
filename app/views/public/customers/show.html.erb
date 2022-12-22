@@ -48,8 +48,14 @@
                   <%= cook.body %>
                 </td>
                 <td><%= cook.tag %></td>
-                <td><%= render "public/cooks/rate", cook: cook %></td>
-                <td><%= image_tag cook.get_image(100, 100) %></td>
+                <td>
+                  <%= render "public/cooks/rate", cook: cook %><br>
+                  <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook %>
+                  コメント: <%= cook.cook_comments.count %></div>
+                </td>
+                <td>
+                  <%= image_tag cook.get_image(100, 100) %>
+                </td>
               </tr>
             <% end %>
           </tbody>

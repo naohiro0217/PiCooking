@@ -35,6 +35,10 @@
         <td>コメント数</td>
         <td><%= @cook.cook_comments.count %></td>
       </tr>
+      <tr>
+        <td>いいね</td>
+        <td id='favorite_btn_<%= @cook.id %>'><%= render 'public/favorites/btn', cook: @cook %></td>
+      </tr>
 
       <tr>
         <td>評価</td>
@@ -58,7 +62,7 @@
     <div id='comments_area'><%= render "public/cook_comments/index", cook: @cook, cook_comment: @cook_comment %></div>
   </div>
   <div>
-    <div id='comment_area'><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>
+    <div id='comment_text_area'><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>
   </div>
 </div>
 

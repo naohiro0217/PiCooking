@@ -1,0 +1,11 @@
+<% if cook.favorited_by?(current_customer) %>
+  <%= link_to cook_favorites_path(cook), method: :delete, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= cook.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to cook_favorites_path(cook), method: :post, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= cook.favorites.count %>
+  <% end %>
+<% end %>

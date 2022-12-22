@@ -14,7 +14,7 @@
         <%= cook_comment.comment %>
       </td>
       <td>
-        <%= link_to "削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete, class: 'btn btn-danger btn-sm ml-5' %>
+        <%= link_to "削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete, remote: true, class: 'btn btn-danger btn-sm ml-5' %>
       </td>
     </tr>
   <% end %>

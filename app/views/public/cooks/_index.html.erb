@@ -1,29 +1,33 @@
-<table class = 'table align-middle table-hover table-inverse'>
-  <thead>
-    <tr class = 'table-secondary' height = '49.5'>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% cooks.each do |cook| %>
-      <tr class = 'cooks_index_tbody_tr' data-href= 'cooks/<%= cook.id %>'>
-        <td>
-          <%= link_to(cook.customer) do %>
-            <%= image_tag cook.customer.get_profile_image(50, 50) %>
-          <% end %>
-          <%= cook.customer.nickname %><br>
-          <%= cook.title %><br>
-          <%= cook.body %><br>
-          <%= cook.tag %>
-          <%= render "public/cooks/rate", cook: cook %>
-          コメント: <%= cook.cook_comments.count %>
-        </td>
-        <td><%= image_tag cook.get_image(150, 150) %></td>
+<div class = 'container'>
+  <table class = 'table align-middle table-hover table-inverse'>
+    <thead>
+      <tr class = 'table-secondary' height = '49.5'>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="mt-5 offset-3">
-  <%= paginate cooks %>
+    </thead>
+    <tbody>
+      <% cooks.each do |cook| %>
+        <tr class = 'cooks_index_tbody_tr' data-href= 'cooks/<%= cook.id %>'>
+          <td class = 'cook_index_td name_td'>
+            <div>
+              <%= link_to(cook.customer) do %>
+                <%= image_tag cook.customer.get_profile_image(50, 50) %>
+              <% end %>
+              <%= cook.customer.nickname %>
+            </div>
+            <div><%= cook.title %></div>
+            <div><%= cook.body %></div>
+            <div><%= cook.tag %></div><%= cook.tag %>
+            <div><%= render "public/cooks/rate", cook: cook %></div>
+            <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook %>コメント: <%= cook.cook_comments.count %></div>
+          </td>
+          <td><%= image_tag cook.get_image(150, 150) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="mt-5 offset-3">
+    <%= paginate cooks %>
+  </div>
 </div>
