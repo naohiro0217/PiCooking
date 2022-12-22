@@ -1,2 +1,2 @@
-$("#comments-area").html("<%= j(render 'cook_comments/index', cooks: @cooks) %>")
+$("#comments_area").html("<%= j(render 'public/cook_comments/index', cook: @cook) %>")
 $("#comment_text_area").val('')

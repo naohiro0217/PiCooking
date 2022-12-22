@@ -7,10 +7,12 @@ class Public::CooksController < ApplicationController
   end
 
   def index
-    @cooks = Cook.order(created_at: :DESC).page(params[:page])
-    # 失敗
-    # @customer = Customer.find(params[:id])
-    # @cooks = Cook.@customer.where(is_deleted: false).order(created_at: :DESC).page(params[:page])
+    customers = Customer.where(is_deleted: false)
+    @cooks = []
+    customers.each do |customer|
+      @cooks.push(customer.cooks&.order(created_at: :DESC))
+    end
+    @cooks = Kaminari.paginate_array(@cooks.reject(&:blank?).flatten)&.page(params[:page])
   end
 
   def show

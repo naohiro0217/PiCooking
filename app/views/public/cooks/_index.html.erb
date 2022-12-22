@@ -8,20 +8,26 @@
     </thead>
     <tbody>
       <% cooks.each do |cook| %>
-        <tr class = 'cooks_index_tbody_tr' data-href= 'cooks/<%= cook.id %>'>
-          <td class = 'cook_index_td name_td'>
+        <tr>
+          <td>
             <div>
               <%= link_to(cook.customer) do %>
                 <%= image_tag cook.customer.get_profile_image(50, 50) %>
               <% end %>
               <%= cook.customer.nickname %>
             </div>
-            <div><%= cook.title %></div>
+            <div>
+              <%= link_to cook_path(cook) do %>
+                <%= cook.title %>
+              <% end %>
+            </div>
             <div><%= cook.body %></div>
             <div><%= cook.tag %></div><%= cook.tag %>
             <div><%= render "public/cooks/rate", cook: cook %></div>
-            <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook %>コメント: <%= cook.cook_comments.count %></div>
+            <div>コメント: <%= cook.cook_comments.count %></div>
+            <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook, class: 'ml-2' %></div>
           </td>
+
           <td><%= image_tag cook.get_image(150, 150) %></td>
         </tr>
       <% end %>
@@ -31,3 +37,5 @@
     <%= paginate cooks %>
   </div>
 </div>
+
+

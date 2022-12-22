@@ -55,14 +55,15 @@
     <div>
       <%= image_tag @cook.get_image(300, 300) %>
     </div>
-
   </div>
 
-  <div class = 'row col-10'>
-    <div id='comments_area'><%= render "public/cook_comments/index", cook: @cook, cook_comment: @cook_comment %></div>
-  </div>
-  <div>
-    <div id='comment_text_area'><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>
+  <div class = 'row'>
+    <div class = 'col'>
+      <div id='comments_area'><%= render "public/cook_comments/index", cook: @cook %></div>
+    </div>
+    <div class = 'col'>
+      <div><%= render "public/cook_comments/form", cook: @cook, cook_comment: @cook_comment %></div>
+    </div>
   </div>
 </div>
 
