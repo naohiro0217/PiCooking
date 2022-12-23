@@ -2,7 +2,13 @@ class Admin::CooksController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @cooks = Cook.order(created_at: :DESC).page(params[:page])
+    # @cooks = Cook.order(created_at: :DESC).page(params[:page])
+    customers = Customer.where(is_deleted: false)
+    @cooks = []
+    customers.each do |customer|
+      @cooks.push(customer.cooks&.order(created_at: :DESC))
+    end
+    @cooks = Kaminari.paginate_array(@cooks.reject(&:blank?).flatten)&.page(params[:page])
   end
 
   def show
