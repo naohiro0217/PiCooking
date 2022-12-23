@@ -1,5 +1,6 @@
 class Public::FavoritesController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_guest_user, only: [:create, :destroy]
 
   def create
     @cook = Cook.find(params[:cook_id])
@@ -12,4 +13,13 @@ class Public::FavoritesController < ApplicationController
     favorite = current_customer.favorites.find_by(cook_id: @cook.id)
     favorite.destroy
   end
+
+  private
+
+  def ensure_guest_user
+    if current_customer.name == "guestuser"
+      redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはいいねできません！'
+    end
+  end
+
 end
