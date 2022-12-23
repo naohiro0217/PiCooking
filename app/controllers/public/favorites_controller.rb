@@ -18,7 +18,7 @@ class Public::FavoritesController < ApplicationController
 
   def ensure_guest_user
     if current_customer.name == "guestuser"
-      redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはいいねできません！'
+      redirect_to cooks_path, notice: 'ゲストユーザーはいいねできません！'
     end
   end
 
