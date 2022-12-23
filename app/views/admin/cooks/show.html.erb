@@ -43,7 +43,7 @@
         <%= image_tag @cook.get_image(300, 300) %>
       </div>
     </div>
-    <div class = 'row col-10'>
+    <div id='admin_comments_area' class = 'col-10'>
       <%# コメント一覧 %>
       <%= render 'admin/cook_comments/index', cook: @cook, cook_comment: @cook_comment %>
     </div>
