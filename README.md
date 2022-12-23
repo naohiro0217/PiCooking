@@ -30,4 +30,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-写真AC
+- 写真AC https://www.photo-ac.com/
+- Canva https://www.canva.com/
