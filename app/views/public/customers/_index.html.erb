@@ -9,7 +9,7 @@
 
     <tbody>
       <% customers.each do |customer| %>
-        <tr class= 'customer_index_tbody_tr' data-href= '/customers/<%= customer.id %>'>
+        <tr>
           <td>
             <%= link_to customer_path(customer.id) do %>
               <%= image_tag customer.get_profile_image(70, 70) %>

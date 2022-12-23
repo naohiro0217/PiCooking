@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <% cooks.each do |cook| %>
-        <tr class = 'cooks_index_tbody_tr' data-href= '/admin/cooks/<%= cook.id %>'>
+        <tr>
           <td>
             <%= link_to admin_customer_path(cook.customer) do %>
               <%= image_tag cook.customer.get_profile_image(50, 50) %>
@@ -20,7 +20,10 @@
             <%= render "public/cooks/rate", cook: cook %>
             コメント: <%= cook.cook_comments.count %>
           </td>
-          <td><%= image_tag cook.get_image(150, 150) %></td>
+          <td>
+            <%= image_tag cook.get_image(150, 150) %><br>
+            <%= link_to '詳細画面へ', admin_cook_path(cook), class: "cook_#{cook.id} btn btn-success ml-3 mt-3" %>
+          </td>
         </tr>
       <% end %>
     </tbody>

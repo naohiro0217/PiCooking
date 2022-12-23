@@ -28,7 +28,10 @@
             <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook, class: 'ml-2' %></div>
           </td>
 
-          <td><%= image_tag cook.get_image(150, 150) %></td>
+          <td>
+            <%= image_tag cook.get_image(150, 150) %><br>
+            <%= link_to '詳細画面へ', cook_path(cook), class: "cook_#{cook.id} btn btn-success ml-3 mt-3" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
