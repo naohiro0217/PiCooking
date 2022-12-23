@@ -27,6 +27,3 @@ window.raty = function(elem,opt) {
   raty.init();
   return raty;
 }
-
-import "packs/cooks.js"
-import "packs/customers.js"
