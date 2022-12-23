@@ -1,5 +1,5 @@
 class Admin::CookCommentsController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   # 管理者側はdestroyのみ
   def destroy

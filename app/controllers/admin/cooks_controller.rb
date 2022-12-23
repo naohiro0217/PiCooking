@@ -2,7 +2,6 @@ class Admin::CooksController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    # @cooks = Cook.order(created_at: :DESC).page(params[:page])
     customers = Customer.where(is_deleted: false)
     @cooks = []
     customers.each do |customer|
