@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "アカウントの退会を実行しました!"
+    redirect_to root_path, notice: "アカウントの退会を実行しました!　　　またのご利用を心からお待ちしております。"
   end
 
   def index
