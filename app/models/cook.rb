@@ -6,10 +6,10 @@ class Cook < ApplicationRecord
 
 
   validates :title, presence:true, length:{maximum:10}
-  # 感想は２００字以内
   validates :body, presence:true, length:{maximum:50}
-  # タグ名
   validates :tag, presence:true, length:{maximum:10}
+  validates :image, presence:true
+  validates :rate, presence:true
 
   # レビューの星の数の検索
   scope :search_by_rate, ->(rate) { where(rate: rate.to_i) }

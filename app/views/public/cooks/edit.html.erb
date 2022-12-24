@@ -1,8 +1,10 @@
 
 <div class = 'container'>
   <div class = 'row'>
-    <div class = "mx-auto col-8 mt-3 border border-dark">
-      <h1 class = 'mt-2 text-nowrap'>投稿情報を編集</span></h1>
+    <div class = "mx-auto col-8 mt-3">
+      <%# エラーメッセージ %>
+      <%= render 'layouts/errors', obj: @cook %>
+      <h3 class = 'mt-2 text-nowrap'>投稿情報を編集</span></h3>
 
       <%= form_with model: @cook do |f| %>
         <div class = "form-group-lg">

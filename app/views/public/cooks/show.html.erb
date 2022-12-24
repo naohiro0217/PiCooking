@@ -1,59 +1,65 @@
 <div class = 'container'>
-  <h3 class = 'mt-3 text-nowrap'>
-    投稿情報
+  <h3 class = 'mt-3'>投稿情報
     <% if @cook.customer == current_customer %>
       <%= link_to "編集する", edit_cook_path, class: 'btn btn-success btn-sm' %>
       <%= link_to "　削除　", cook_path(@cook), method: :delete, class: 'btn btn-danger btn-sm' %>
     <% end %>
   </h3>
   <div class = 'row'>
-    <table class = 'col-5 table table-bordered border-dark'>
-      <tr>
-        <td>
-          <%= link_to customer_path(@customer.id) do %>
-            <%= image_tag @customer.get_profile_image(70,70) %>
-          <% end %>
-        </td>
-        <td><%= @customer.nickname %></td>
-      </tr>
-      <tr>
-        <td>タイトル</td>
-        <td><%= @cook.title %></td>
-      </tr>
+    <div class = 'col-6'>
+      <table class = 'table table-bordered border-dark'>
+        <thead>
+          <th scope="col" style="width:30%"></th>
+          <th scope="col" style="width:70%"></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to customer_path(@customer.id) do %>
+                <%= image_tag @customer.get_profile_image(70,70) %>
+              <% end %>
+            </td>
+            <td><%= @customer.nickname %></td>
+          </tr>
+          <tr>
+            <td>タイトル</td>
+            <td><%= @cook.title %></td>
+          </tr>
 
-      <tr>
-        <td style="width: 40%">感想</td>
-        <td style="width: 50%"><%= @cook.body %></td>
-      </tr>
+          <tr>
+            <td style="width: 40%">感想</td>
+            <td style="width: 50%"><%= @cook.body %></td>
+          </tr>
 
-      <tr>
-        <td>タグ</td>
-        <td><%= @cook.tag %></td>
-      </tr>
+          <tr>
+            <td>タグ</td>
+            <td><%= @cook.tag %></td>
+          </tr>
 
-      <tr>
-        <td>コメント数</td>
-        <td><%= @cook.cook_comments.count %></td>
-      </tr>
-      <tr>
-        <td>いいね</td>
-        <td id='favorite_btn_<%= @cook.id %>'><%= render 'public/favorites/btn', cook: @cook %></td>
-      </tr>
+          <tr>
+            <td>コメント</td>
+            <td><%= @cook.cook_comments.count %>件</td>
+          </tr>
+          <tr>
+            <td>いいね</td>
+            <td id='favorite_btn_<%= @cook.id %>'><%= render 'public/favorites/btn', cook: @cook %></td>
+          </tr>
 
-      <tr>
-        <td>評価</td>
-        <td><%= render 'public/cooks/rate', cook: @cook %></td>
-      </tr>
+          <tr>
+            <td>評価</td>
+            <td><%= render 'public/cooks/rate', cook: @cook %></td>
+          </tr>
 
 
-      <tr>
-        <td>投稿日</td>
-        <td><%= @cook.created_at.strftime('%Y/%m/%d') %></td>
-      </tr>
-
-    </table>
-    <div class = 'col-7'>
-      <%= image_tag @cook.get_image(500, 500) %>
+          <tr>
+            <td>投稿日</td>
+            <td><%= @cook.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class = 'col-6'>
+      <%= image_tag @cook.get_image(450, 450) %>
     </div>
   </div>
 
