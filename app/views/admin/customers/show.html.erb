@@ -62,7 +62,10 @@
               </td>
               <td><%= cook.tag %></td>
               <td><%= render "public/cooks/rate", cook: cook %></td>
-              <td><%= image_tag cook.get_image(100, 100) %></td>
+              <td>
+                <%= image_tag cook.get_image(100, 100) %>
+                <%= link_to '詳細画面へ', admin_cook_path(cook), class: "cook_#{cook.id} btn btn-success ml-3 mt-3" %>
+              </td>
             </tr>
           <% end %>
         </tbody>
