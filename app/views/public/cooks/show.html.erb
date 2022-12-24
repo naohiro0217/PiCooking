@@ -6,7 +6,7 @@
       <%= link_to "　削除　", cook_path(@cook), method: :delete, class: 'btn btn-danger btn-sm' %>
     <% end %>
   </h3>
-  <div class = 'row col-12'>
+  <div class = 'row'>
     <table class = 'col-5 table table-bordered border-dark'>
       <tr>
         <td>
@@ -22,8 +22,8 @@
       </tr>
 
       <tr>
-        <td>感想</td>
-        <td><%= @cook.body %></td>
+        <td style="width: 40%">感想</td>
+        <td style="width: 50%"><%= @cook.body %></td>
       </tr>
 
       <tr>
@@ -52,8 +52,8 @@
       </tr>
 
     </table>
-    <div>
-      <%= image_tag @cook.get_image(300, 300) %>
+    <div class = 'col-7'>
+      <%= image_tag @cook.get_image(500, 500) %>
     </div>
   </div>
 
