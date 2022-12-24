@@ -1,31 +1,41 @@
 <div class = 'container'>
-  <div class = 'mt-5'>
+  <div class = 'mt-3'>
     <h3 class = 'text-nowrap'><%= @customer.nickname %>さんの詳細<%= link_to "編集する", edit_admin_customer_path, class: 'btn btn-success btn-sm ml-3' %></h3>
     <table class = 'table table-hover table-inverse'>
-      <tr>
-        <td>会員ID</td>
-        <td><%= @customer.id %></td>
-      </tr>
-      <tr>
-        <td>ユーザーネーム</td>
-        <td><%= @customer.nickname %></td>
-      </tr>
-      <tr>
-        <td>フルネーム</td>
-        <td><%= @customer.name %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= @customer.email %></td>
-      </tr>
-      <tr>
-        <td>ステータス</td>
-        <% if @customer.is_deleted? %>
-          <td>退会</td>
-        <% else %>
-          <td>有効</td>
-        <% end %>
-      </tr>
+      <thead>
+        <th scope="col" style="width:50%"></th>
+        <th scope="col" style="width:50%"></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>ユーザーネーム</td>
+          <td><%= @customer.nickname %></td>
+        </tr>
+        <tr>
+          <td>フルネーム</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>プロフィール</td>
+          <td><%= @customer.introduction %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <% if @customer.is_deleted? %>
+            <td>退会</td>
+          <% else %>
+            <td>有効</td>
+          <% end %>
+        </tr>
+      </tbody>
     </table>
 
     <h3 class = 'mt-3'><%= @customer.nickname %>さんの投稿一覧</h3>
