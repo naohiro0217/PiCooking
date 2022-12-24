@@ -10,15 +10,17 @@
       <% cooks.each do |cook| %>
         <tr>
           <td>
-            <%= link_to admin_customer_path(cook.customer) do %>
-              <%= image_tag cook.customer.get_profile_image(50, 50) %>
-            <% end %>
-            <%= cook.customer.nickname %><br>
-            <%= cook.title %><br>
-            <%= cook.body %><br>
-            <%= cook.tag %>
-            <%= render "public/cooks/rate", cook: cook %>
-            コメント: <%= cook.cook_comments.count %>
+            <div>
+              <%= link_to admin_customer_path(cook.customer) do %>
+                <%= image_tag cook.customer.get_profile_image(50, 50) %>
+              <% end %>
+            </div>
+            <div><%= cook.customer.nickname %></div>
+            <div><%= cook.title %></div>
+            <div><%= cook.body %></div>
+            <div><%= cook.tag %></div>
+            <div><%= render "public/cooks/rate", cook: cook %></div>
+            <div>コメント: <%= cook.cook_comments.count %>件</div>
           </td>
           <td>
             <%= image_tag cook.get_image(150, 150) %><br>

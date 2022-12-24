@@ -3,7 +3,10 @@
       <h3 class = 'text-nowrap'><%= @customer.nickname %>さんの編集画面</h3>
       <%= form_with model: [:admin, @customer] do |f| %>
         <table class = 'table table-hover table-inverse'>
-          
+          <thead class = 'table-secondary' height = '50'>
+            <th scope="col" style="width:50%"></th>
+            <th scope="col" style="width:50%"></th>
+          </thead>
           <tr>
             <td>会員ID</td>
             <td><%= @customer.id %></td>

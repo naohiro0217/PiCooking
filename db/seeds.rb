@@ -19,6 +19,7 @@ Customer.create(
       email: "cook@cook",
       password: "cookcook",
       name: "料理太郎",
+      introduction: "食べることが大好きです",
       nickname: "テスト１",
       is_deleted: "false",
     },

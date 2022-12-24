@@ -22,7 +22,7 @@
             <div><%= cook.body %></div>
             <div><%= cook.tag %></div><%= cook.tag %>
             <div><%= render "public/cooks/rate", cook: cook %></div>
-            <div>コメント: <%= cook.cook_comments.count %></div>
+            <div>コメント: <%= cook.cook_comments.count %>件</div>
             <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook, class: 'ml-2' %></div>
           </td>
 
