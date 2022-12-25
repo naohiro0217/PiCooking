@@ -1,31 +1,29 @@
-
-<div class = 'container'>
-  <div class = 'row'>
-    <div class = "mx-auto col-8 mt-3">
+<div class='container'>
+  <div class='row'>
+    <div class="mx-auto col-8 mt-3">
       <%# エラーメッセージ %>
       <%= render 'layouts/errors', obj: @cook %>
-      <h3 class = 'mt-2 text-nowrap'>投稿情報を編集</span></h3>
+      <h3 class='mt-2 text-nowrap'>投稿情報を編集</span></h3>
 
       <%= form_with model: @cook do |f| %>
-        <div class = "form-group-lg">
+        <div class="form-group-lg">
           <%= f.label :画像 %><br>
           <%= f.file_field :image, accept: "image/*" %>
         </div>
-        <div class = "form-group-lg">
+        <div class="form-group-lg">
           <%= f.label :タイトル %><br>
-          <%= f.text_field :title, class: 'form-control cook_title' %>
+          <%= f.text_field :title, class: "form-control cook_title" %>
         </div>
-        <div class = "form-group-lg">
+        <div class="form-group-lg">
           <%= f.label :感想 %><br>
-          <%= f.text_area :body, class: 'form-control cook_body pb-5' %>
+          <%= f.text_area :body, class: "form-control cook_body pb-5" %>
         </div>
-        <div class = "form-group-lg" %>
+        <div class="form-group-lg" %>
           <%= f.label :タグ %><br>
-          <%= f.text_field :tag, class: 'form-control' %>
+          <%= f.text_field :tag, class: "form-control" %>
         </div>
 
         <h6>評価</h6>
-          <%# レビュー機能 %>
           <%= f.hidden_field :rate, id: :review_star %>
           <div id="post_raty"></div>
           <script>
@@ -41,8 +39,8 @@
             raty(raty_elem,option);
           </script>
 
-        <div class = 'd-flex justify-content-center mb-3'>
-          <%= f.submit '変更を保存', class: 'btn btn-primary mt-4 px-5 col-5' %>
+        <div class='d-flex justify-content-center mb-3'>
+          <%= f.submit '変更を保存', class: "btn btn-primary mt-4 px-5 col-5" %>
         </div>
       <% end %>
     </div>

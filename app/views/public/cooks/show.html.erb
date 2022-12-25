@@ -1,14 +1,14 @@
-<div class = 'container'>
-  <h3 class = 'mt-3'>投稿情報
+<div class='container'>
+  <h3 class='mt-3'>投稿情報
     <% if @cook.customer == current_customer %>
-      <%= link_to "編集する", edit_cook_path, class: 'btn btn-success btn-sm' %>
-      <%= link_to "　削除　", cook_path(@cook), method: :delete, class: 'btn btn-danger btn-sm' %>
+      <%= link_to "編集する", edit_cook_path, class: "btn btn-success btn-sm" %>
+      <%= link_to "　削除　", cook_path(@cook), method: :delete, class: "btn btn-danger btn-sm" %>
     <% end %>
   </h3>
-  <div class = 'row'>
-    <div class = 'col-6'>
-      <table class = 'table table-bordered border-dark'>
-        <thead class = 'table table-hover table-inverse'>
+  <div class='row'>
+    <div class='col-6'>
+      <table class='table table-bordered border-dark'>
+        <thead class='table table-hover table-inverse'>
           <th scope="col" style="width:30%"></th>
           <th scope="col" style="width:70%"></th>
         </thead>
@@ -25,17 +25,14 @@
             <td>タイトル</td>
             <td><%= @cook.title %></td>
           </tr>
-
           <tr>
             <td style="width: 40%">感想</td>
             <td style="width: 50%"><%= @cook.body %></td>
           </tr>
-
           <tr>
             <td>タグ</td>
             <td><%= @cook.tag %></td>
           </tr>
-
           <tr>
             <td>コメント</td>
             <td><%= @cook.cook_comments.count %>件</td>
@@ -44,13 +41,10 @@
             <td>いいね</td>
             <td id='favorite_btn_<%= @cook.id %>'><%= render 'public/favorites/btn', cook: @cook %></td>
           </tr>
-
           <tr>
             <td>評価</td>
             <td><%= render 'public/cooks/rate', cook: @cook %></td>
           </tr>
-
-
           <tr>
             <td>投稿日</td>
             <td><%= @cook.created_at.strftime('%Y/%m/%d') %></td>
@@ -63,8 +57,8 @@
     </div>
   </div>
 
-  <div class = 'row'>
-    <div class = 'col'>
+  <div class='row'>
+    <div class='col'>
       <div id='comments_area'><%= render "public/cook_comments/index", cook: @cook %></div>
     </div>
     <div class = 'col'>
