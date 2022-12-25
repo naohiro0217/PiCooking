@@ -18,7 +18,7 @@ users = Customer.create!(
     {
       email: "cook@cook",
       password: "cookcook",
-      name: "太郎",
+      name: "料理太郎",
       introduction: "食べることが大好きです",
       nickname: "太郎",
       is_deleted: "false",
