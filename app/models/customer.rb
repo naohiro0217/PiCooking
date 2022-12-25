@@ -10,11 +10,9 @@ class Customer < ApplicationRecord
 
   validates :name, presence: true
   validates :nickname, presence: true, length: { maximum: 10 }
-  # プロフィールは５０字以内
   validates :introduction, length: { maximum: 50 }
   validates :email, presence: true
 
-  # プロフィール画像
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
@@ -25,7 +23,7 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  # 検索機能
+  # 会員検索機能
   def self.search_for(content, method)
     if method == 'perfect'
       Customer.where(nickname: content)

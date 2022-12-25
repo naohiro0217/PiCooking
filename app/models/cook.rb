@@ -4,14 +4,13 @@ class Cook < ApplicationRecord
   has_many :cook_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-
   validates :title, presence:true, length:{maximum:10}
   validates :body, presence:true, length:{maximum:50}
   validates :tag, presence:true, length:{maximum:10}
   validates :image, presence:true
   validates :rate, presence:true
 
-  # レビューの星の数の検索
+  # レビューの星の数の絞り込み
   scope :search_by_rate, ->(rate) { where(rate: rate.to_i) }
 
   # 投稿内容の検索
