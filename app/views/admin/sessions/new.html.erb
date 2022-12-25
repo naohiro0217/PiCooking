@@ -1,12 +1,12 @@
-<div class = 'container'>
-  <div class = 'row d-flex justify-content-center'>
-    <div class = 'px-5 mt-5'>
-      <h2 class = 'mt-4 mb-5 offset-1'>管理者用ログイン</h2>
+<div class='container'>
+  <div class='row d-flex justify-content-center'>
+    <div class='px-5 mt-5'>
+      <h2 class='mt-4 mb-5 offset-1'>管理者用ログイン</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form_group ml-5">
           <%= f.label :メールアドレス %>
-          <%= f.email_field :email, placeholder: 'example@example.com', autofocus: true, autocomplete: "email", class: 'ml-5' %>
+          <%= f.email_field :email, placeholder: "example@example.com", autofocus: true, autocomplete: "email", class: 'ml-5' %>
         </div>
 
         <div class="form_group ml-5 mt-3">
@@ -22,7 +22,7 @@
         <% end %>
 
         <div class="actions text-center mt-3">
-          <%= f.submit "ログイン", class: 'btn btn-success px-5' %>
+          <%= f.submit "ログイン", class: "btn btn-success px-5" %>
         </div>
       <% end %>
     </div>
