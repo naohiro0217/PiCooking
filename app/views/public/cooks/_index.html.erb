@@ -10,26 +10,23 @@
       <% cooks.each do |cook| %>
         <tr>
           <td>
-            <div>
-              <%= link_to(cook.customer) do %>
-                <%= image_tag cook.customer.get_profile_image(50, 50) %>
-              <% end %>
-              <%= cook.customer.nickname %>
-            </div>
-            <div>
-              <%= cook.title %>
-            </div>
-            <div><%= cook.body %></div>
-            <div><%= cook.tag %></div><%= cook.tag %>
-            <div><%= render "public/cooks/rate", cook: cook %></div>
-            <div>コメント: <%= cook.cook_comments.count %>件</div>
-            <div id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook, class: 'ml-2' %></div>
+            <%= link_to(cook.customer) do %>
+              <%= image_tag cook.customer.get_profile_image(50, 50) %>
+            <% end %>
+            <%= cook.customer.nickname %><br>
+            <%= cook.title %><br>
+            <%= cook.body %><br>
+            <%= cook.tag %><br>
+            <%= render "public/cooks/rate", cook: cook %>
           </td>
-
           <td>
             <%= image_tag cook.get_image(150, 150) %><br>
             <%= link_to '詳細画面へ', cook_path(cook), class: "cook_#{cook.id} btn btn-success ml-3 mt-3" %>
           </td>
+        </tr>
+        <tr>
+          <td>コメント: <%= cook.cook_comments.count %>件</td>
+          <td id='favorite_btn_<%= cook.id %>'><%= render 'public/favorites/btn', cook: cook %></td>
         </tr>
       <% end %>
     </tbody>
