@@ -13,22 +13,26 @@ Admin.create(
   )
 
 # 会員側の情報の初期設定
-Customer.create(
+users = Customer.create!(
   [
     {
       email: "cook@cook",
       password: "cookcook",
-      name: "料理太郎",
+      name: "太郎",
       introduction: "食べることが大好きです",
-      nickname: "テスト１",
+      nickname: "太郎",
       is_deleted: "false",
-    },
-    {
-      email: "eat@eat",
-      password: "eatear",
-      name: "料理二郎",
-      nickname: "テスト２",
-      is_deleted: "false",
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg") ,
     }
-  ]
-)
+    ]
+      )
+
+# 投稿
+Cook.create!(
+      title: 'お寿司',
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), filename:"sample-post1.jpg"),
+      body: 'おいしかったです。',
+      tag: "寿司",
+      rate: "5",
+      customer_id: users[0].id,
+      )
