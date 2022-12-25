@@ -13,7 +13,7 @@ class Admin::CooksController < ApplicationController
   def show
     @cook = Cook.find(params[:id])
     @cook_comments = CookComment.all
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(@cook.customer_id)
   end
 
   def destroy
