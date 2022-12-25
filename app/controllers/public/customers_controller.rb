@@ -33,7 +33,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.where(is_deleted: false).page(params[:page])
+    @customers = Customer.where(is_deleted: false).order(created_at: :DESC).page(params[:page])
   end
 
   private
