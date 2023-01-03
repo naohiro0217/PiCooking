@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
-
   scope module: :public do
     resources :cooks, only: [:index,:show,:edit,:create,:destroy,:update, :new] do
       resources :cook_comments, only: [:create, :destroy]
@@ -41,7 +40,6 @@ Rails.application.routes.draw do
 
   # 検索機能
   get '/search', to: 'searches#search'
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
