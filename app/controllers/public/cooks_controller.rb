@@ -62,4 +62,11 @@ class Public::CooksController < ApplicationController
     params.require(:cook).permit(:title, :image, :body, :rate, :tag)
   end
 
+  def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      redirect_to customer_path(current_customer)
+    end
+  end
+
 end

@@ -43,6 +43,13 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:nickname, :profile_image, :introduction)
   end
 
+  def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      redirect_to customer_path(current_customer)
+    end
+  end
+
   def ensure_guest_customer
     @customer = Customer.find(params[:id])
     if @customer.name == "guestuser"

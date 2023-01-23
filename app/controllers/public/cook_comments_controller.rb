@@ -1,6 +1,5 @@
 class Public::CookCommentsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_correct_user, only: [:edit, :update]
 
   def create
     cook = Cook.find(params[:cook_id])
