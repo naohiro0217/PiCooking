@@ -71,14 +71,14 @@ ActiveRecord::Schema.define(version: 2022_12_11_073432) do
   end
 
   create_table "customers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "nickname", null: false
+    t.text "introduction"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
-    t.string "nickname", null: false
-    t.text "introduction"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
